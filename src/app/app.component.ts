@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Thera';
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
+  isLoading: boolean = true; // Define isLoading as a boolean
+
+  constructor() {
+    setTimeout(() => {
+      this.isLoading = false; // After 3 seconds, show the Home component
+    }, 3000);
+  }
 }
+

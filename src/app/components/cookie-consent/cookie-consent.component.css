@@ -1,0 +1,62 @@
+.cookie-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 100px;
+  z-index: 1000;
+}
+
+.card {
+  width: 300px;
+  height: 220px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px;
+  gap: 13px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.acceptButton, .declineButton {
+  width: 80px;
+  height: 30px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.acceptButton {
+  background-color: #7b57ff;
+  color: white;
+}
+
+.declineButton {
+  background-color: rgb(218, 218, 218);
+  color: rgb(46, 46, 46);
+}
+
+.acceptButton:hover {
+  background-color: #9173ff;
+}
+
+.declineButton:hover {
+  background-color: #ebebeb;
+}
