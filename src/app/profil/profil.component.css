@@ -1,82 +1,69 @@
-.card {
+.input {
+  display: flex;
+  flex-direction: column;
   width: 200px;
-  margin-left: 60%;
-  margin-bottom: 5%;
-  /* background-color: rgba(36, 40, 50, 1);
-background-image: linear-gradient(135deg, rgba(36, 40, 50, 1) 0%, rgba(36, 40, 50, 1) 40%, rgba(37, 28, 40, 1) 100%); */
-
-  background-color: rgba(36, 40, 50, 1);
-  background-image: linear-gradient(
-    139deg,
-    rgba(36, 40, 50, 1) 0%,
-    rgba(36, 40, 50, 1) 0%,
-    rgba(37, 28, 40, 1) 100%
-  );
-
+  background-color: #0d1117;
+  justify-content: center;
   border-radius: 10px;
-  padding: 15px 0px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  transition: 1s;
+  padding: 10px;
+  overflow: hidden;
 }
 
-.card .separator {
-  border-top: 1.5px solid #42434a;
-}
-
-.card .list {
-  list-style-type: none;
+.value {
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  color: white;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 0px 10px;
-}
-
-.card .list .element {
-  display: flex;
-  align-items: center;
-  color: #7e8590;
-  gap: 10px;
-  transition: all 0.3s ease-out;
-  padding: 4px 7px;
-  border-radius: 6px;
+  position: relative;
+  gap: 5px;
   cursor: pointer;
+  border-radius: 10px;
+  transition: 1s;
+  box-sizing: border-box;
 }
 
-.card .list .element svg {
-  width: 19px;
-  height: 19px;
-  transition: all 0.3s ease-out;
+.value:not(:active):hover,
+.value:focus {
+  display: flex;
+  box-sizing: border-box;
+  border: 2px solid #1a1f24;
+  color: #637185;
 }
 
-.card .list .element .label {
-  font-weight: 600;
+.value:focus,
+.value:active {
+  background-color: #1a1f24;
+  outline: none;
+  margin-left: 17px;
 }
 
-.card .list .element:hover {
-  background-color: #5353ff;
-  color: #ffffff;
-  transform: translate(1px, -1px);
-}
-.card .list .delete:hover {
-  background-color: #8e2a2a;
-}
-
-.card .list .element:active {
-  transform: scale(0.99);
-}
-
-.card .list:not(:last-child) .element:hover svg {
-  stroke: #ffffff;
+.value::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -15px;
+  width: 5px;
+  height: 80%;
+  background-color: #2f81f7;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 1s;
 }
 
-.card .list:last-child svg {
-  stroke: #bd89ff;
-}
-.card .list:last-child .element {
-  color: #bd89ff;
+.value:focus::before,
+.value:active::before {
+  opacity: 1;
 }
 
-.card .list:last-child .element:hover {
-  background-color: rgba(56, 45, 71, 0.836);
+.value svg {
+  width: 20px;
+}
+
+.input:hover > :not(.value:hover) {
+  transition: 300ms;
+  filter: blur(1.5px);
+  transform: scale(0.95, 0.95);
 }

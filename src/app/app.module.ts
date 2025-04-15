@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CookieConsentComponent } from './components/cookie-consent/cookie-consent.component'; // Vérifie bien ce chemin
 import { LoaderComponent } from './loader/loader.component';
-import { SectionComponent } from './section/section.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ForgetPasswordComponent } from './forgetpass/forgetpass.component';
@@ -19,10 +18,15 @@ import { ProfilComponent } from './profil/profil.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { ConsultationsComponent } from './consultations/consultations.component';
 import { PricingCardComponent } from './pricing-card/pricing-card.component';
+import { FooterComponent } from './footer/footer.component';
+import { SectionComponent } from './section/section.component';
+import { SearchComponent } from './search/search.component';
+import { AccountComponent } from './account/account.component';
+
 
 @NgModule({
   imports: [CommonModule, FormsModule], // ✅ Import FormsModule
-  declarations: [ForgetPasswordComponent],
+  declarations: [ForgetPasswordComponent, SearchComponent, AccountComponent],
   exports: [ForgetPasswordComponent]
 })
 export class ForgetPasswordModule { }
@@ -34,7 +38,6 @@ export class ForgetPasswordModule { }
     CookieConsentComponent ,
     HeaderComponent,
     LoaderComponent,
-    SectionComponent,
     SignInComponent,
     ExploreComponent,
     SignupComponent,
@@ -44,7 +47,9 @@ export class ForgetPasswordModule { }
     ProfilComponent,
     DoctorComponent,
     ConsultationsComponent,
-    PricingCardComponent
+    PricingCardComponent,
+    FooterComponent,
+
 
 
 
@@ -54,8 +59,8 @@ export class ForgetPasswordModule { }
   imports: [
     BrowserModule,
     AppRoutingModule,
-
-  ],
+    SectionComponent
+],
   providers: [],
   bootstrap: [AppComponent],
 // Ajout ici et non dans un autre @NgModule

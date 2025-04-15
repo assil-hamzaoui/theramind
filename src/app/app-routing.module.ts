@@ -12,9 +12,12 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { ConsultationsComponent } from './consultations/consultations.component';
 import { MessagesComponent } from './messages/messages.component';
 import { PricingCardComponent } from './pricing-card/pricing-card.component';
-
+import { FooterComponent } from './footer/footer.component';
+import { SectionComponent } from './section/section.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
+  { path: '', component: SectionComponent, pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignupComponent },
   { path: 'forgetpass', component: ForgetPasswordComponent },
@@ -25,7 +28,10 @@ const routes: Routes = [
   {path:'doctor',component:DoctorComponent},
   {path:'consultations',component:ConsultationsComponent},
   {path:'messages',component:MessagesComponent},
-  {path:'pricing-card',component:PricingCardComponent}
+  {path:'pricing-card',component:PricingCardComponent},
+  {path:'footer', component:FooterComponent},
+  {path:'search',component:SearchComponent}
+
 
 
 

@@ -15,6 +15,8 @@ export class AppComponent {
     setTimeout(() => {
       this.isLoading = false; // After 3 seconds, show the Home component
     }, 3000);
+
   }
+
 }
 

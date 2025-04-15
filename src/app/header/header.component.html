@@ -1,4 +1,4 @@
-<header>
+<header style="background-color: white;">
     <style>
         * {
             margin: 0;
@@ -37,9 +37,7 @@
         }
 
         .lang-btn {
-
             padding: 5px 10px;
-
             color: white;
             text-decoration: none;
         }
@@ -52,26 +50,23 @@
 
         nav a {
             text-decoration: none;
-            color: #000000; /* Couleur bleu par défaut */
+            color: #000000;
             margin-right: 15px;
             text-size-adjust: 20px;
             text-size-adjust: 100px;
-
         }
 
         nav a:hover {
             text-decoration: underline;
         }
 
-        /* Style pour les icônes */
         nav img {
-            width: 20px; /* Ajustez la taille selon vos besoins */
-            height: 20px; /* Ajustez la taille selon vos besoins */
+            width: 20px;
+            height: 20px;
             vertical-align: middle;
             margin-left: 5px;
         }
 
-        /* Style pour le menu déroulant "Bien-être émotionnel" */
         .dropdown {
             position: relative;
         }
@@ -101,444 +96,316 @@
         }
     </style>
 
-
     <div class="logo">
-      <img src="assets/images/cerveau.png" alt=""><h3 style="margin-left: 25px;">TheraMind</h3>
+      <img src="assets/images/cerveau.png" alt=""><h3 style="margin-left: 50%;">TheraMind</h3>
     </div>
-      <div class="input-container">
-    <input placeholder="Search something..." class="input" name="text" type="text">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <rect fill="white"></rect> <path d="M7.25007 2.38782C8.54878 2.0992 10.1243 2 12 2C13.8757 2 15.4512 2.0992 16.7499 2.38782C18.06 2.67897 19.1488 3.176 19.9864 4.01358C20.824 4.85116 21.321 5.94002 21.6122 7.25007C21.9008 8.54878 22 10.1243 22 12C22 13.8757 21.9008 15.4512 21.6122 16.7499C21.321 18.06 20.824 19.1488 19.9864 19.9864C19.1488 20.824 18.06 21.321 16.7499 21.6122C15.4512 21.9008 13.8757 22 12 22C10.1243 22 8.54878 21.9008 7.25007 21.6122C5.94002 21.321 4.85116 20.824 4.01358 19.9864C3.176 19.1488 2.67897 18.06 2.38782 16.7499C2.0992 15.4512 2 13.8757 2 12C2 10.1243 2.0992 8.54878 2.38782 7.25007C2.67897 5.94002 3.176 4.85116 4.01358 4.01358C4.85116 3.176 5.94002 2.67897 7.25007 2.38782ZM9 11.5C9 10.1193 10.1193 9 11.5 9C12.8807 9 14 10.1193 14 11.5C14 12.8807 12.8807 14 11.5 14C10.1193 14 9 12.8807 9 11.5ZM11.5 7C9.01472 7 7 9.01472 7 11.5C7 13.9853 9.01472 16 11.5 16C12.3805 16 13.202 15.7471 13.8957 15.31L15.2929 16.7071C15.6834 17.0976 16.3166 17.0976 16.7071 16.7071C17.0976 16.3166 17.0976 15.6834 16.7071 15.2929L15.31 13.8957C15.7471 13.202 16 12.3805 16 11.5C16 9.01472 13.9853 7 11.5 7Z" clip-rule="evenodd" fill-rule="evenodd"></path> </g></svg>
-  </div>
+    <div class="navigation-card">
+      <a href="#" class="tab">
+        <svg
+          class="svgIcon"
+          viewBox="0 0 104 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M100.5 40.75V96.5H66V68.5V65H62.5H43H39.5V68.5V96.5H3.5V40.75L52 4.375L100.5 40.75Z"
+            stroke="black"
+            stroke-width="7"
+          ></path>
+        </svg>
+      </a>
+
+      <a routerLink="/profil" class="tab">
+        <svg
+          width="104"
+          height="100"
+          viewBox="0 0 104 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="21.5"
+            y="3.5"
+            width="60"
+            height="60"
+            rx="30"
+            stroke="black"
+            stroke-width="7"
+          ></rect>
+          <g clip-path="url(#clip0_41_27)">
+            <mask
+              id="mask0_41_27"
+              style="mask-type:luminance"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="61"
+              width="104"
+              height="52"
+            >
+              <path
+                d="M0 113C0 84.2812 23.4071 61 52.1259 61C80.706 61 104 84.4199 104 113H0Z"
+                fill="white"
+              ></path>
+            </mask>
+            <g mask="url(#mask0_41_27)">
+              <path
+                d="M-7 113C-7 80.4152 19.4152 54 52 54H52.2512C84.6973 54 111 80.3027 111 112.749H97C97 88.0347 76.9653 68 52.2512 68H52C27.1472 68 7 88.1472 7 113H-7ZM-7 113C-7 80.4152 19.4152 54 52 54V68C27.1472 68 7 88.1472 7 113H-7ZM52.2512 54C84.6973 54 111 80.3027 111 112.749V113H97V112.749C97 88.0347 76.9653 68 52.2512 68V54Z"
+                fill="black"
+              ></path>
+            </g>
+          </g>
+          <defs>
+            <clipPath id="clip0_41_27">
+              <rect
+                width="104"
+                height="39"
+                fill="white"
+                transform="translate(0 61)"
+              ></rect>
+            </clipPath>
+          </defs>
+        </svg>
+      </a>
+
+      <a routerLink="/search" class="tab">
+        <svg
+          width="101"
+          height="114"
+          viewBox="0 0 101 114"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="46.1726"
+            cy="46.1727"
+            r="29.5497"
+            transform="rotate(36.0692 46.1726 46.1727)"
+            stroke="black"
+            stroke-width="7"
+          ></circle>
+          <line
+            x1="61.7089"
+            y1="67.7837"
+            x2="97.7088"
+            y2="111.784"
+            stroke="black"
+            stroke-width="7"
+          ></line>
+        </svg>
+      </a>
+    </div>
     <style>
-      .input-container {
-  position: relative;
+      .navigation-card {
+  width: fit-content;
+  height: fit-content;
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background-color: rgb(255, 255, 255);
+  padding: 15px 20px;
+  border-radius: 50px;
 }
-
-.input {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  padding: 18px 16px;
-  background-color: transparent;
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  background-color: rgb(252, 252, 252);
+  padding: 15px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: all .5s ease-in-out;
+  text-decoration: none;
+  transition: all 0.3s;
 }
-
-.input::placeholder {
-  color: transparent;
-}
-
-.input:focus::placeholder {
-  color: rgb(131, 128, 128);
-}
-
-.input:focus,.input:not(:placeholder-shown) {
-  background-color: #fff;
-  border: 1px solid rgb(98, 0, 255);
-  width: 290px;
-  cursor: none;
-  padding: 18px 16px 18px 40px;
-}
-
-.icon {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 40px;
-  width: 40px;
-  background-color: #fff;
-  border-radius: 10px;
-  z-index: -1;
-  fill: rgb(98, 0, 255);
-  border: 1px solid rgb(98, 0, 255);
-}
-
-.input:hover + .icon {
-  transform: rotate(360deg);
-  transition: .2s ease-in-out;
-}
-
-.input:focus + .icon,.input:not(:placeholder-shown) + .icon {
-  z-index: 0;
-  background-color: transparent;
-  border: none;
+.tab:hover {
+  background-color: rgb(223, 223, 223);
 }
 
     </style>
-    <input id="checkbox" type="checkbox">
-    <label class="toggle" for="checkbox">
-        <div id="bar1" class="bars"></div>
-        <div id="bar2" class="bars"></div>
-        <div id="bar3" class="bars"></div>
-    </label>
-    <div id="menu">
-      <a routerLink="/search" class="menu-item"></a>
-      <a href="#" class="menu-item"></a>
-      <a href="#" class="menu-item"></a>
-      <a href="#" class="menu-item"></a>
+
+<label class="main">
+  Menu
+  <input class="inp" checked="" type="checkbox" />
+  <div class="bar">
+    <span class="top bar-list"></span>
+    <span class="middle bar-list"></span>
+    <span class="bottom bar-list"></span>
   </div>
-    <style>
+  <section class="menu-container">
+    <div class="menu-list">Food</div>
+    <div class="menu-list">Entertainment</div>
+    <div class="menu-list">Blog</div>
+    <div class="menu-list">Location</div>
+  </section>
+</label>
+<style>
+  .main > .inp {
+  display: none;
+}
+.main {
+  font-weight: 800;
+  color: black;
 
-      #checkbox {
-            display: none;
-        }
+  padding: 3px 15px;
+  border-radius: 10px;
 
-        .toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: 0.3s;
-            z-index: 3;
-        }
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  width: 12rem;
+  position: relative;
+  cursor: pointer;
+  justify-content: space-between;
+}
 
-        .bars {
-            width: 30px;
-            height: 4px;
-            background-color: white;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
+.arrow {
+  height: 34%;
+  aspect-ratio: 1;
+  margin-block: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s;
+}
 
-        #checkbox:checked + .toggle #bar1 {
-            transform: translateY(10px) rotate(45deg);
-        }
+.arrow::after,
+.arrow::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(46, 43, 43);
+  height: 100%;
+  width: 2.5px;
+  border-radius: 500px;
+  transform-origin: bottom;
+}
 
-        #checkbox:checked + .toggle #bar2 {
-            opacity: 0;
-        }
+.arrow::after {
+  transform: rotate(35deg) translateX(-0.5px);
+}
+.arrow::before {
+  transform: rotate(-35deg) translateX(0.5px);
+}
 
-        #checkbox:checked + .toggle #bar3 {
-            transform: translateY(-10px) rotate(-45deg);
-        }
+.main > .inp:checked + .arrow {
+  transform: rotateX(180deg);
+}
 
-        #menu {
-            position: fixed;
-            top: 0;
-            right: -50%;
-            width: 40%;
-            height: 100vh;
-            background-color: #333;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            transform: translateX(0);
-            transition: transform 0.3s ease-in-out;
-        }
+.menu-container {
+  background-color: white;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 130%;
+  overflow: hidden;
+  clip-path: inset(0% 0% 0% 0% round 10px);
+  transition: all 0.4s;
+}
 
-        #checkbox:checked ~ #menu {
-            transform: translateX(-100%);
-        }
+.menu-list {
+  --delay: 0.4s;
+  --trdelay: 0.15s;
+  padding: 8px 10px;
+  border-radius: inherit;
+  transition: background-color 0.2s 0s;
+  position: relative;
+  transform: translateY(30px);
+  opacity: 0;
+}
 
-        .menu-item {
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
+.menu-list::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 95%;
+}
 
-        .menu-item:hover {
-            background-color: #555;
-        }
+.menu-list:hover {
+  background-color: rgb(5, 5, 5);
+}
 
-    </style>
+.inp:checked ~ .menu-container {
+  clip-path: inset(10% 50% 90% 50% round 10px);
+}
+
+.inp:not(:checked) ~ .menu-container .menu-list {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.inp:not(:checked) ~ .menu-container .menu-list:nth-child(1) {
+  transition:
+    transform 0.4s var(--delay),
+    opacity 0.4s var(--delay);
+}
+
+.inp:not(:checked) ~ .menu-container .menu-list:nth-child(2) {
+  transition:
+    transform 0.4s calc(var(--delay) + (var(--trdelay) * 1)),
+    opacity 0.4s calc(var(--delay) + (var(--trdelay) * 1));
+}
+
+.inp:not(:checked) ~ .menu-container .menu-list:nth-child(3) {
+  transition:
+    transform 0.4s calc(var(--delay) + (var(--trdelay) * 2)),
+    opacity 0.4s calc(var(--delay) + (var(--trdelay) * 2));
+}
+
+.inp:not(:checked) ~ .menu-container .menu-list:nth-child(4) {
+  transition:
+    transform 0.4s calc(var(--delay) + (var(--trdelay) * 3)),
+    opacity 0.4s calc(var(--delay) + (var(--trdelay) * 3));
+}
+
+.bar-inp {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+}
+
+.bar {
+  display: flex;
+  height: 50%;
+  width: 20px;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.bar-list {
+  --transform: -25%;
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 50px;
+  background-color: rgb(1, 1, 1);
+  transition: all 0.4s;
+  position: relative;
+}
+
+.inp:not(:checked) ~ .bar > .top {
+  transform-origin: top right;
+  transform: translateY(var(--transform)) rotate(-45deg);
+}
+
+.inp:not(:checked) ~ .bar > .middle {
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.inp:not(:checked) ~ .bar > .bottom {
+  transform-origin: bottom right;
+  transform: translateY(calc(var(--transform) * -1)) rotate(45deg);
+}
+
+</style>
 
 
 </header>
-<section>
-  <div class="hero">
-    <div class="content">
-        <h1 style="margin-bottom: 20%;">Innovative Healthcare Solutions</h1>
-        <p>Enim sit sit mollit cillum consectetur officia est irure aute.</p>
-    </div>
-    <div class="button-container">
-      <button style="--clr: #7808d0" class="button" href="#">
-        <span class="button__icon-wrapper">
-          <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
-            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
-          </svg>
-          <svg class="button__icon-svg button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
-            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
-          </svg>
-        </span>
-       <a routerLink="/explore" style="color: #ffffff;" >About-Us</a>
-      </button>
-      <button style="--clr: #7808d0" class="button" href="#">
-        <span class="button__icon-wrapper">
-          <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
-            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
-          </svg>
-          <svg class="button__icon-svg button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
-            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
-          </svg>
-        </span>
-        <a routerLink="/sign-up" style="color: #f1f1f1;">Sign-Up</a>
-      </button>
-      <button style="--clr: #7808d0" class="button" href="#">
-        <span class="button__icon-wrapper">
-          <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
-            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
-          </svg>
-          <svg class="button__icon-svg button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
-            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
-          </svg>
-        </span>
-        <a routerLink="/doctor" style="color: #f1f1f1;">Meet Our Doctors</a>
-      </button>
-    </div>
-
-    <style>
-      .button-container {
-        display: flex;
-        gap: 20px; /* Espace de 20px entre les boutons */
-      }
-      .button {
-        line-height: 1;
-        text-decoration: none;
-        display: inline-flex;
-        border: none;
-        cursor: pointer;
-        align-items: center;
-        gap: 0.75rem;
-        background-color: var(--clr);
-        color: #fff;
-        border-radius: 10rem;
-        font-weight: 600;
-        padding: 0.75rem 1.5rem;
-        padding-left: 20px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        transition: background-color 0.3s;
-      }
-      .button__icon-wrapper {
-        flex-shrink: 0;
-        width: 25px;
-        height: 25px;
-        position: relative;
-        color: var(--clr);
-        background-color: #fff;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-        display: flex;
-      }
-      .button:hover {
-        background-color: #000;
-      }
-      .button:hover .button__icon-wrapper {
-        color: #000;
-      }
-      .button__icon-svg--copy {
-        position: absolute;
-        transform: translate(-150%, -100%); /* Initial position at top-left */
-      }
-      .button:hover .button__icon-svg:first-child {
-        transition: transform 0.3s ease-in-out;
-        transform: translate(150%, 100%); /* Move to bottom-right on hover */
-      }
-      .button:hover .button__icon-svg--copy {
-        transition: transform 0.3s ease-in-out 0.1s;
-        transform: translate(0); /* Move to center */
-      }
-    </style>
-
-
-
-
-    <h3 style="text-align: center; margin-top: 40px; font-size: 24px;">How Are You Feeling Today?</h3>
-
-    <div class="container">
-      <div class="emotion-card happy">
-          <div class="emoji">😊</div>
-          <h2><a routerLink="/consultations" style="color: #000;">Happy</a></h2>
-      </div>
-
-      <div class="emotion-card calm">
-          <div class="emoji">😌</div>
-          <h2>Calm</h2>
-      </div>
-
-      <div class="emotion-card manic">
-          <div class="emoji">🤪</div>
-          <h2>Manic</h2>
-      </div>
-
-      <div class="emotion-card angry">
-          <div class="emoji">😠</div>
-          <h2>Angry</h2>
-      </div>
-    </div>
-
-    <style>
-    .hero {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 50px;
-    }
-
-    .content {
-        max-width: 600px;
-        color: rgb(0, 0, 0);
-    }
-
-    h1 {
-        font-size: 50px;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        max-width: 1200px;
-        margin: 20px auto;
-    }
-
-    .emotion-card {
-        background: white;
-        border-radius: 12px;
-        padding: 1.5rem;
-        text-align: center;
-        transition: transform 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .emotion-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .happy { border: 2px solid #4CAF50; }
-    .calm { border: 2px solid #2196F3; }
-    .manic { border: 2px solid #FFC107; }
-    .angry { border: 2px solid #F44336; }
-
-    .emoji {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
-    </style>
-  </div>
-</section>
-<footer>
-  <nav class="nav-bar">
-    <a class="nav-item" aria-label="Accueil" routerLink="/header">
-      <img src="assets/images/home.png" alt="Home">
-
-    </a>
-    <a routerLink="/video" class="nav-item" aria-label="Vidéos" (click)="goToVideo()">
-      <div class="x-container">
-      </div>
-      <img src="assets/images/video.png" alt="Video">
-    </a>
-    <a routerLink="/messages" class="nav-item" aria-label="Messagerie">
-      <img src="assets/images/mess.png" alt="Message">
-    </a>
-    <a routerLink="/profil" class="nav-item" aria-label="Profil">
-      <img src="assets/images/user.png" alt="User">
-    </a>
-  </nav>
-  <style>
-    /* Styles de base */
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    z-index: 1000;
-    }
-
-    .nav-bar {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      background-color: (183, 183, 230);
-      padding: 12px 20px;
-      max-width: 500px;
-      width: 90%;
-      margin: 0 auto;
-    }
-
-    .nav-item {
-      padding: 8px;
-      border-radius: 50%;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .nav-item:hover {
-      background: rgba(0, 0, 0, 0.05);
-      transform: translateY(-3px);
-    }
-
-    .icon {
-      width: 32px;
-      height: 32px;
-      transition: all 0.2s ease;
-      filter: grayscale(100%) opacity(0.7);
-    }
-
-    .nav-item:hover .icon {
-      filter: none;
-      opacity: 1;
-      transform: scale(1.1);
-    }
-
-    /* Indicateur actif */
-    .nav-item.active .icon {
-      filter: none;
-      opacity: 1;
-      transform: scale(1.15);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 480px) {
-      .nav-bar {
-        padding: 10px 15px;
-        width: 95%;
-        border-radius: 25px;
-      }
-
-      .icon {
-        width: 28px;
-        height: 28px;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .nav-bar {
-        padding: 8px 12px;
-      }
-
-      .icon {
-        width: 24px;
-        height: 24px;
-      }
-    }
-  </style>
-
-</footer>

@@ -6,7 +6,7 @@
         <h1 style="text-align: center; color: black;"><strong>TheraMind</strong></h1>
         <h3 style="text-align: center; color: black;"><strong>1-Session at $0 USD • Then: $70 USD⁠/Session • Cancel anytime</strong></h3>
         <button class="button">
-          Start Now
+          <a routerLink="/sessionvid" style="color: white;">Start Now</a>
           <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
             <path
               fill-rule="evenodd"
@@ -91,94 +91,122 @@
 
         </style>
 
-         <!-- From Uiverse.io by Yaya12085 -->
-<div class="card">
-  <div class="content">
-    <div class="title">second Session</div>
-    <div class="price">$39.99</div>
-    <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus.</div>
-  </div>
-    <button>
-     Start your   1st Session
+<div class="card-container">
+  <div class="card">
+    <div class="content">
+      <div class="title">second Session</div>
+      <div class="price">$39.99</div>
+      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus.</div>
+    </div>
+    <button class="bu">
+      <a routerLink="/pricing-card" style="color: white;">Start your 2sc Session</a>
     </button>
-</div>
-<div class="card">
-  <div class="content">
-    <div class="title">Pack 4 Session </div>
-    <div class="price">$140</div>
-    <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus.</div>
   </div>
-    <button>
-     Start Now
+  <div class="card">
+    <div class="content">
+      <div class="title">Pack 4 Session</div>
+      <div class="price">$140</div>
+      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus.</div>
+    </div>
+    <button class="bu">
+      <a routerLink="/pricing-card" style="color: white;">Start Now</a>
     </button>
+  </div>
 </div>
+
 <style>
-  /* From Uiverse.io by Yaya12085 */
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  width: 260px;
-  padding: 20px 1px;
-  margin: 10px 0;
-  text-align: center;
+  .bu {
   position: relative;
-  cursor: pointer;
-  box-shadow: 0 10px 15px -3px rgba(33,150,243,.4),0 4px 6px -4px rgba(33,150,243,.4);
-  border-radius: 10px;
-  background-color: #6B6ECC;
-  background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
-  margin-top: 10%;
-  gap: 20px;
-}
-
-.content {
-  padding: 20px;
-}
-
-.content .price {
-  color: white;
-  font-weight: 800;
-  font-size: 50px;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.42);
-
-}
-
-.content .description {
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-.content .title {
-  font-weight: 800;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.64);
-  margin-top: 10px;
-  font-size: 25px;
-  letter-spacing: 1px;
-}
-
-button {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  border: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  padding-block: 0.5rem;
+  padding-inline: 1.25rem;
+  background-color: rgb(0 107 179);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffff;
+  gap: 10px;
+  font-weight: bold;
+  border: 3px solid #ffffff4d;
   outline: none;
-  color: rgb(255 255 255);
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: .75rem;
-  padding: 0.75rem 1.5rem;
-  background-color: rgb(33 150 243);
-  border-radius: 0.5rem;
-  width: 90%;
-  text-shadow: 0px 4px 18px #2c3442;
+  overflow: hidden;
+  font-size: 15px;
+  cursor: pointer;
+  width: 70%;
+
 }
+  /* From Uiverse.io by Yaya12085 */
+  .card-container {
+    display: flex;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px; /* Add some space between the cards */
+    margin-top: 10%;
+  }
 
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 260px;
+    padding: 20px 1px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(33, 150, 243, .4), 0 4px 6px -4px rgba(33, 150, 243, .4);
+    border-radius: 10px;
+    background-color: #6B6ECC;
+    background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
+    gap: 20px;
+  }
 
+  .content {
+    padding: 20px;
+  }
+
+  .content .price {
+    color: white;
+    font-weight: 800;
+    font-size: 50px;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.42);
+  }
+
+  .content .description {
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .content .title {
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.64);
+    margin-top: 10px;
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+
+  button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: none;
+    outline: none;
+    color: rgb(255 255 255);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .75rem;
+    padding: 0.75rem 1.5rem;
+    background-color: rgb(33 150 243);
+    border-radius: 0.5rem;
+    width: 90%;
+    text-shadow: 0px 4px 18px #2c3442;
+  }
 </style>
+
+
       </form>
       </div>
       </div>
@@ -231,3 +259,4 @@ button {
       document.getElementById("aproposModal").style.display = "none";
   }
 </script>
+

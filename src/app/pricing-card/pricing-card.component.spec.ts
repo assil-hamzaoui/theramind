@@ -19,3 +19,4 @@ describe('PricingCardComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

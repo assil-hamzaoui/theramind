@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-
-
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,4 +12,3 @@ throw new Error('Method not implemented.');
 apropos: any;
 
 }
-
