@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="progress-bar">
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step"></div>
+  </div>
+
+  <h1>Help us match you to the <span class="highlight">right therapist</span></h1>
+
+  <p class="description">
+    It's important to have a therapist who you can establish a personal connection with. The following questions
+    are designed to match you to a licensed therapist based on your therapy needs and personal preferences.
+  </p>
+
+  <div class="content">
+    <h2>What are your preferred pronouns?</h2>
+
+    <div class="options">
+      <button (click)="selectPronouns('he/him')" class="option-button">
+        He/Him
+      </button>
+
+      <button (click)="selectPronouns('she/her')" class="option-button">
+        She/Her
+      </button>
+
+      <button (click)="selectPronouns('they/them')" class="option-button">
+        They/Them
+      </button>
+
+      <button (click)="selectPronouns('other')" class="option-button">
+        Other
+      </button>
+    </div>
+
+    <button (click)="goBack()" class="back-button">
+      Back
+    </button>
+  </div>
+</div>

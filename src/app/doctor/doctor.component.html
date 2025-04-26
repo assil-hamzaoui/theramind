@@ -1,83 +1,65 @@
+<!-- Add Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <div class="container">
-  <h1>Our Psychologists</h1>
+  <div class="section-title">
+    <h1>OUR THERAPISTS</h1>
+    <p>Meet our experienced therapists dedicated to your mental well-being.</p>
+  </div>
+  
   <div class="doctors">
-      <div class="doctor">
-          <img src="assets/images/doc1.png" alt="Dr. Ahmed Ben Salah">
-          <div class="doctor-info">
-              <h2>Dr. Ahmed Ben Salah</h2>
-              <p>psychologist
-              </p>
-              <p>+216 20 123 456</p>
-              <div class="rating">★★★★★</div>
-              <p><a href="mailto:Dr.ahmed&#64;gmail.com">Dr.ahmed&#64;gmail.com</a></p>
-              <button class="btn" routerLink="/messages">Contact Me</button>
-
-          </div>
+    <div class="doctor">
+      <img src="assets/images/doc1.png" alt="Walter White">
+      <div class="doctor-info">
+        <h3>Walter White</h3>
+        <p class="specialty">Cognitive Behavioral Therapist</p>
+        <div class="social-links">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="far fa-envelope"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="action-buttons">
+          <button class="btn message-btn" [routerLink]="['/messages']">Message Me</button>
+          <button class="btn appointment-btn" [routerLink]="['/rdvs']">Book Appointment</button>
+        </div>
       </div>
-      <div class="doctor">
-          <img src="assets/images/doc2.png" alt="Dr. Fatma Boukadida">
-          <div class="doctor-info">
-              <h2>Dr. Fatma Boukadida</h2>
-              <p>psychologist
-              </p>
-              <p>+216 50 987 654</p>
-              <div class="rating">★★★★☆</div>
-              <p><a href="mailto:Dr.fatma&#64;gmail.com">Dr.fatma&#64;gmail.com</a></p>
-              <button class="btn">Contact Me</button>
+    </div>
 
-          </div>
+    <div class="doctor">
+      <img src="assets/images/doc2.png" alt="Sarah Johnson">
+      <div class="doctor-info">
+        <h3>Sarah Johnson</h3>
+        <p class="specialty">Family Therapist</p>
+        <div class="social-links">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="far fa-envelope"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="action-buttons">
+          <button class="btn message-btn" [routerLink]="['/messages']">Message Me</button>
+          <button class="btn appointment-btn" [routerLink]="['/rdvs']">Book Appointment</button>
+        </div>
       </div>
-      <div class="doctor">
-          <img src="assets/images/doc3.png" alt="Dr. Mohamed Trabelsi">
-          <div class="doctor-info">
-              <h2>Dr. Mohamed Trabelsi</h2>
-              <p>psychologist
-              </p>
-              <p>+216 98 765 432</p>
-              <div class="rating">★★★☆☆</div>
-              <p><a href="mailto:Dr.mohamed&#64;gmail.com">Dr.mohamed&#64;gmail.com</a></p>
-              <button class="btn">Contact Me</button>
+    </div>
 
-          </div>
+    <div class="doctor">
+      <img src="assets/images/doc3.png" alt="Emilie Anderson">
+      <div class="doctor-info">
+        <h3>Emilie Anderson</h3>
+        <p class="specialty">Child & Adolescent Therapist</p>
+        <div class="social-links">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="far fa-envelope"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="action-buttons">
+          <button class="btn message-btn" [routerLink]="['/messages']">Message Me</button>
+          <button class="btn appointment-btn" [routerLink]="['/rdvs']">Book Appointment</button>
+        </div>
       </div>
-      <div class="doctor">
-          <img src="assets/images/doc4.png" alt="Dr. Amira Chaabane">
-          <div class="doctor-info">
-              <h2>Dr. Amira Chaabane</h2>
-              <p>psychologist
-              </p>
-              <p>+216 22 345 678</p>
-              <div class="rating">★★★★☆</div>
-              <p><a href="mailto:Dr.amira&#64;gmail.com">Dr.amira&#64;gmail.com</a></p>
-              <button class="btn">Contact Me</button>
-
-          </div>
-      </div>
-      <div class="doctor">
-          <img src="assets/images/doc5.png" alt="Dr. Sami Hammami">
-          <div class="doctor-info">
-              <h2>Dr. Sami Hammami</h2>
-              <p>psychologist
-              </p>
-              <p>+216 55 123 789</p>
-              <div class="rating">★★☆☆☆</div>
-              <p><a href="mailto:Dr.sami&#64;gmail.com">Dr.sami&#64;gmail.com</a></p>
-              <button class="btn">Contact Me</button>
-
-          </div>
-      </div>
-      <div class="doctor">
-          <img src="assets/images/doc6.png" alt="Dr. Leila Abid">
-          <div class="doctor-info">
-              <h2>Dr. Leila Abid</h2>
-              <p>psychologist
-              </p>
-              <p>+216 29 456 123</p>
-              <div class="rating">★★★★★</div>
-              <p><a href="mailto:Dr.leila&#64;gmail.com">Dr.leila&#64;gmail.com</a></p>
-              <button class="btn">Contact Me</button>
-
-          </div>
-      </div>
+    </div>
   </div>
 </div>

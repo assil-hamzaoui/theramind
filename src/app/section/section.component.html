@@ -1,20 +1,45 @@
-
-<section>
-
-
-  <div class="hero" style="margin-left: 35%;">
+<section class="hero-section">
+<div class="hero">
     <div class="content">
-        <h1 style="margin-bottom: 20%; margin-left: 20px;"></h1>
-        <p></p>
-    </div>
+    <div class="search-container">
+          <div class="search-bar" >
+          <h1 style="color: aliceblue; font-size: 50px; margin-left: 14%;">Live healthier</h1>
+              <form class="search-form" onsubmit="handleSearch(event)" >
+                  <div class="search-input-group" >
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="m21 21-4.3-4.3"/>
+              </svg>
+                      <input type="text" placeholder="Nom, spécialité, établissement,..." aria-label="Search query">
+                  </div>
+
+                  <div class="location-input-group">
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+                      <input type="text" placeholder="Où ?" aria-label="Location search">
+                  </div>
+
+                  <button type="submit" class="search-button" style="border:25px; border-radius: 25px;">
+                      <span>Rechercher</span>
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+                  </button>
+              </form>
+          </div>
+      </div>
+
     <div class="button-container">
       <button style="--clr: #7808d0" class="button" routerLink="/explore">
         <span class="button__icon-wrapper">
           <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
-            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+              <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"/>
           </svg>
           <svg class="button__icon-svg button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
-            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+              <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"/>
           </svg>
         </span>
         Explore
@@ -22,10 +47,10 @@
       <button style="--clr: #7808d0" class="button" routerLink="/sign-in">
         <span class="button__icon-wrapper">
           <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
-            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+              <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"/>
           </svg>
           <svg class="button__icon-svg button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
-            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+              <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"/>
           </svg>
         </span>
         Sign Up
@@ -33,31 +58,147 @@
       <button style="--clr: #7808d0" class="button" routerLink="/doctor">
         <span class="button__icon-wrapper">
           <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
-            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+              <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"/>
           </svg>
           <svg class="button__icon-svg button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
-            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+              <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"/>
           </svg>
         </span>
         Our Doctors
       </button>
-    </div><br>
-    <div>
-      <img src="" alt="">
     </div>
-    </div><br>
+
+    <div class="container-boutons" style="margin-bottom: 1%;">
+        <button class="bouton-principal" style="background-color: white;" routerLink="/signdoc">Vous êtes soignant ?</button>
+        <button class="bouton-secondaire" routerLink="/aide">
+            <span class="icone-aide">ⓘ</span> Centre d'aide
+        </button>
+      </div>
+      </div>
+
+    <img src="assets/images/imgsec.png" alt="" style="width: 40%; height: auto; border-radius: 5px;">
+  </div>
+
+
+<div class="therapy-types-section">
+  <main class="therapy-types-container">
+    <div class="therapy-types-header">
+    <h1>You deserve to be happy.</h1>
+    <h2>What type of therapy are you looking for?</h2>
+    </div>
+
+    <div class="therapy-options">
+        <a routerLink="/page1" class="therapy-card individual">
+            <div class="card-content">
+          <div class="card-text">
+            <h3>Individual</h3>
+            <p class="card-link">For myself <span class="arrow">→</span></p>
+          </div>
+                <div class="illustration">
+            <img src="assets/images/therapy-types/individual.svg" alt="Individual therapy illustration">
+                </div>
+            </div>
+        </a>
+
+      <a routerLink="/couples" class="therapy-card couples">
+            <div class="card-content">
+          <div class="card-text">
+            <h3>Couples</h3>
+            <p class="card-link">For me and my partner <span class="arrow">→</span></p>
+          </div>
+                <div class="illustration">
+            <img src="assets/images/therapy-types/couples.svg" alt="Couples therapy illustration">
+                </div>
+            </div>
+        </a>
+
+      <a routerLink="/teen" class="therapy-card teen">
+            <div class="card-content">
+          <div class="card-text">
+            <h3>Teen</h3>
+            <p class="card-link">For my child <span class="arrow">→</span></p>
+          </div>
+                <div class="illustration">
+            <img src="assets/images/therapy-types/teen.svg" alt="Teen therapy illustration">
+                </div>
+            </div>
+        </a>
+    </div>
+</main>
+</div>
+
+<div class="statistics-section">
+  <div class="statistics-content">
+    <div class="statistics-header">
+      <div class="header-text">
+        <h2>The world's largest<br>therapy service.</h2>
+        <h3 class="online-text">100% online.</h3>
+      </div>
+    </div>
+
+    <div class="statistics-numbers">
+      <div class="stat-item">
+        <div class="stat-number" data-counter="messages">{{ formatNumber(messagesCount) }}</div>
+        <div class="stat-description">Messages, chat, audio, video sessions</div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-number" data-counter="therapists">{{ formatNumber(therapistsCount) }}</div>
+        <div class="stat-description">Qualified therapists ready to help</div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-number" data-counter="helped">{{ formatNumber(helpedCount) }}</div>
+        <div class="stat-description">People got help</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="therapists-section">
+  <div class="therapists-content">
+    <div class="therapists-text">
+      <h2>Professional and qualified<br>therapists who you can<br>trust</h2>
+      <p>
+        Tap into the world's largest network of qualified and experienced therapists who can help you with a range of issues including depression, anxiety, relationships, trauma, grief, and more. With our therapists, you get the same professionalism and quality you would expect from an in-office therapist, but with the ability to communicate when and how you want.
+      </p>
+      <button class="match-button" routerLink="/sign-up">Get matched to a therapist</button>
+    </div>
+
+    <div class="therapists-grid">
+      <div class="therapist-image main-image">
+        <img src="assets/images/therapists/therapist-1.jpg" alt="Professional therapist">
+      </div>
+      <div class="therapist-image small-image top-right">
+        <img src="assets/images/therapists/therapist-2.jpg" alt="Professional therapist">
+      </div>
+      <div class="therapist-image small-image middle-right">
+        <img src="assets/images/therapists/therapist-3.jpg" alt="Professional therapist">
+      </div>
+      <div class="therapist-image small-image bottom-left">
+        <img src="assets/images/therapists/therapist-4.jpg" alt="Professional therapist">
+      </div>
+      <div class="therapist-image small-image bottom-right">
+        <img src="assets/images/therapists/therapist-5.jpg" alt="Professional therapist">
+      </div>
+      <div class="decorative-line"></div>
+    </div>
+  </div>
+</div>
+
+<div class="app-section">
     <div class="app-container">
       <div class="left-section">
-        <strong><h1>L'application n°1 pour votre santé</h1></strong>
-        <p>TheraMind  rend l'accès aux soins rapide et facile. C'est pourquoi plus de 80 millions de personnes l'utilisent pour être en meilleure santé.</p>
+        <strong><h1 style="font-size: 50px;">L'application n°1 pour votre santé</h1></strong>
+        <p style="font-size: 20px;">TheraMind  rend l'accès aux soins rapide et facile. C'est pourquoi plus de 80 millions de personnes l'utilisent pour être en meilleure santé.</p>
         <div class="rating">
           <span class="star">★</span>
           <span class="star">★</span>
           <span class="star">★</span>
-          <span class="star">★</span>
+          <span class="star" style="color: yellow;">★</span>
           <span class="star half">★</span>
-          <span>4,7</span>
-          <strong><span>Plus de 800 000 notes en France</span></strong>
+          <span style="font-size: 20px;">4,7</span>
+          <strong><span style="font-size: 20px;">Plus de 800 000 notes en France</span></strong>
         </div>
         <div class="download-buttons">
           <a href="#" class="playstore-button">
@@ -82,8 +223,8 @@
               </svg>
             </span>
             <span class="texts">
-              <span class="text-1">Download form</span>
-              <span class="text-2">App store</span>
+              <span class="text-1" style="font-size: 20px;">Download form</span>
+              <span class="text-2" style="font-size: 20px;">App store</span>
             </span>
           </a>
           <a href="https://play.google.com/store/apps?hl=fr&pli=1" class="playstore-button">
@@ -93,12 +234,11 @@
               </svg>
             </span>
             <span class="texts">
-              <span class="text-1">Download from</span>
-              <span class="text-2">Play Store</span>
+              <span class="text-1" style="font-size: 20px;">Download from</span>
+              <span class="text-2" style="font-size: 20px;">Play Store</span>
             </span>
           </a>
-
-        </div>
+      </div>
       </div>
       <div class="right-section">
         <img src="assets/images/play.png" alt="TheraMind sur téléphone">
@@ -109,6 +249,199 @@
         </div>
       </div>
     </div>
+</div>
 
+<div class="comparison-section">
+  <h2 class="comparison-title">TheraMind vs. traditional in-office therapy</h2>
 
-    </section>
+  <div class="comparison-table">
+    <div class="table-header">
+      <div class="column-label">Feature</div>
+      <div class="column-label">TheraMind</div>
+      <div class="column-label">In-office</div>
+    </div>
+
+    <div class="table-row">
+      <div class="feature">Provided by a qualified therapist</div>
+      <div class="check">✓</div>
+      <div class="check">✓</div>
+    </div>
+
+    <div class="table-row">
+      <div class="feature">In-office visits</div>
+      <div class="cross">✕</div>
+      <div class="check">✓</div>
+    </div>
+
+    <div class="table-row">
+      <div class="feature">Messaging any time</div>
+      <div class="check">✓</div>
+      <div class="cross">✕</div>
+    </div>
+
+    <div class="table-row">
+      <div class="feature">Chat sessions</div>
+      <div class="check">✓</div>
+      <div class="cross">✕</div>
+    </div>
+
+    <div class="table-row">
+      <div class="feature">Phone sessions</div>
+      <div class="check">✓</div>
+      <div class="cross">✕</div>
+    </div>
+
+    <div class="table-row">
+      <div class="feature">Video sessions</div>
+      <div class="check">✓</div>
+      <div class="cross">✕</div>
+    </div>
+
+    <div class="table-row">
+      <div class="feature">Easy scheduling</div>
+      <div class="check">✓</div>
+      <div class="cross">✕</div>
+    </div>
+
+    <div class="table-row">
+      <div class="feature">Digital worksheets</div>
+      <div class="check">✓</div>
+      <div class="cross">✕</div>
+    </div>
+
+    <div class="table-row">
+      <div class="feature">Group sessions</div>
+      <div class="check">✓</div>
+      <div class="neutral">○</div>
+    </div>
+
+    <div class="table-row">
+      <div class="feature">Smart provider matching</div>
+      <div class="check">✓</div>
+      <div class="cross">✕</div>
+    </div>
+
+    <div class="table-row">
+      <div class="feature">Easy to switch providers</div>
+      <div class="check">✓</div>
+      <div class="cross">✕</div>
+    </div>
+
+    <div class="table-row">
+      <div class="feature">Access therapy from anywhere</div>
+      <div class="check">✓</div>
+      <div class="cross">✕</div>
+    </div>
+  </div>
+
+  <div class="testimonial">
+    <div class="testimonials-container">
+      <div class="testimonial-slide active" id="testimonial-1">
+        <div class="quote">
+          <p>"I can actually see progress in my mental health which is something I haven't been able to say in 15 years and it's thanks to her."</p>
+          <div class="author">
+            <img src="assets/images/adhd.png" alt="Profile picture" class="author-image">
+            <div class="author-info">
+              <p class="review-text">MEMBER REVIEW FOR</p>
+              <p class="author-name">Virginia Tingley (LCSW)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-slide" id="testimonial-2">
+        <div class="quote">
+          <p>"The flexibility of online therapy has made it possible for me to maintain consistent treatment despite my busy schedule. It's been life-changing."</p>
+          <div class="author">
+            <img src="assets/images/therapist1.jpg" alt="Profile picture" class="author-image">
+            <div class="author-info">
+              <p class="review-text">MEMBER REVIEW FOR</p>
+              <p class="author-name">Dr. Michael Chen (PhD)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-slide" id="testimonial-3">
+        <div class="quote">
+          <p>"Having access to my therapist through messaging has helped me process my thoughts in real-time. The support is incredible."</p>
+          <div class="author">
+            <img src="assets/images/testimonials/profile3.jpg" alt="Profile picture" class="author-image">
+            <div class="author-info">
+              <p class="review-text">MEMBER REVIEW FOR</p>
+              <p class="author-name">Sarah Martinez (LMFT)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-nav">
+      <span class="nav-dot active" data-slide="1"></span>
+      <span class="nav-dot" data-slide="2"></span>
+      <span class="nav-dot" data-slide="3"></span>
+    </div>
+
+    <button class="more-stories" (click)="showNextTestimonial()">More success stories</button>
+  </div>
+</div>
+
+<div class="how-it-works-section">
+  <h2 class="section-title">How it works</h2>
+
+  <div class="steps-container">
+    <div class="step" id="step1">
+      <div class="step-content">
+        <div class="step-images">
+          <img src="assets/images/image-how-it-works-1.png" alt="Therapist profile" class="profile-img">
+          <div class="decorative-shape"></div>
+        </div>
+        <div class="step-text">
+          <h3>Get matched to the best therapist for you</h3>
+          <p>Answer a few questions to find a qualified therapist who fits your needs and preferences. Tap into the largest online network of credentialed providers.</p>
+        </div>
+      </div>
+      <a href="#step2" class="nav-arrow down">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="step" id="step2">
+      <div class="step-content">
+        <div class="step-images">
+          <img src="assets/images/image-how-it-works-2.png" alt="Therapy session" class="main-img">
+          <div class="decorative-shape"></div>
+        </div>
+        <div class="step-text">
+          <h3>Communicate your way</h3>
+          <p>Talk to your therapist however you feel comfortable — text, chat, audio, or video. You can expect the same professionalism as an in-office therapist.</p>
+        </div>
+      </div>
+      <a href="#step3" class="nav-arrow down">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="step" id="step3">
+      <div class="step-content">
+        <div class="step-images">
+          <img src="assets/images/telephone.png" alt="Mobile therapy" class="main-img">
+          <div class="decorative-shape"></div>
+        </div>
+        <div class="step-text">
+          <h3>Therapy when you need it</h3>
+          <p>You can message your therapist at anytime, from anywhere. You also get to schedule live sessions when it's convenient for you, and can connect from any mobile device or computer.</p>
+        </div>
+      </div>
+      <a href="#step1" class="nav-arrow up">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>

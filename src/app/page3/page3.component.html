@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="progress-bar">
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+  </div>
+
+  <h1>Help us match you to the <span class="highlight">right therapist</span></h1>
+
+  <p class="description">
+    It's important to have a therapist who you can establish a personal connection with. The following questions
+    are designed to match you to a licensed therapist based on your therapy needs and personal preferences.
+  </p>
+
+  <div class="question-card">
+    <h2>How old are you?</h2>
+
+    <div class="select-wrapper">
+      <select [(ngModel)]="selectedAge" class="age-select">
+        <option value="" disabled selected>Select your age</option>
+        <option *ngFor="let age of ageRanges" [value]="age">{{age}}</option>
+      </select>
+    </div>
+
+    <div class="info-box">
+      <div class="info-icon">i</div>
+      <p>
+        <strong>Did you know?</strong><br>
+        Almost a fifth of older adults in the United States have experienced depression. (Geriatric Mental Health Foundation, 2008)
+      </p>
+    </div>
+  </div>
+
+  <button class="next-button" (click)="nextStep()" [disabled]="!canProceed()">
+    Next
+  </button>
+</div>

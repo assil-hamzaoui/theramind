@@ -1,0 +1,169 @@
+<div class="profile-container">
+  <!-- Header Section -->
+  <div class="profile-header">
+    <img [src]="therapist.image" [alt]="therapist.name" class="profile-image">
+    <div class="profile-info">
+      <h1>{{ therapist.name }}</h1>
+      <p class="title">{{ therapist.title }}</p>
+    </div>
+  </div>
+
+  <!-- Navigation Tabs -->
+  <nav class="profile-nav">
+    <a [class.active]="activeTab === 'essential'" (click)="setActiveTab('essential')">L'essentiel</a>
+    <a [class.active]="activeTab === 'map'" (click)="setActiveTab('map')">Carte</a>
+    <a [class.active]="activeTab === 'presentation'" (click)="setActiveTab('presentation')">Présentation</a>
+    <a [class.active]="activeTab === 'schedule'" (click)="setActiveTab('schedule')">Horaires</a>
+    <a [class.active]="activeTab === 'pricing'" (click)="setActiveTab('pricing')">Tarifs</a>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Essential Info Section -->
+    <div id="essential" class="content-section">
+      <div class="info-card">
+        <h2>
+          <i class="fas fa-euro-sign"></i>
+          Tarifs et remboursement
+          <i class="fas fa-info-circle info-icon"></i>
+        </h2>
+        <p>{{ therapist.payment.insurance }}</p>
+        <a href="#pricing" class="link" (click)="setActiveTab('pricing')">Voir les tarifs</a>
+      </div>
+
+      <div class="info-card">
+        <h2>
+          <i class="fas fa-credit-card"></i>
+          Moyens de paiement
+        </h2>
+        <p class="text-danger">{{ therapist.payment.cards }}</p>
+        <p>{{ therapist.payment.methods.join(', ') }}</p>
+      </div>
+
+      <div class="info-card">
+        <h2>
+          <i class="fas fa-stethoscope"></i>
+          Expertises et actes
+        </h2>
+        <div class="expertise-tags">
+          <span class="tag" *ngFor="let exp of therapist.expertise">
+            {{ exp.name }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Presentation Section -->
+    <div id="presentation" class="content-section">
+      <div class="info-card">
+        <h2>Présentation</h2>
+        <p class="description">{{ therapist.presentation.description }}</p>
+        <a href="#" class="link">Voir plus</a>
+      </div>
+
+      <div class="info-card">
+        <h2>Langues parlées</h2>
+        <p>{{ therapist.presentation.languages.join(' et ') }}</p>
+      </div>
+
+      <div class="info-card">
+        <h2>
+          <i class="fas fa-graduation-cap"></i>
+          Diplômes nationaux et universitaires
+        </h2>
+        <div class="education-list">
+          <div class="education-item" *ngFor="let edu of therapist.presentation.education">
+            <div class="year">{{ edu.year }}</div>
+            <div class="degree">{{ edu.degree }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2>
+          <i class="fas fa-briefcase"></i>
+          Expérience
+        </h2>
+        <div class="experience-list">
+          <div class="experience-item" *ngFor="let exp of therapist.presentation.experience">
+            <div class="period" *ngIf="exp.period">{{ exp.period }}</div>
+            <div class="position">{{ exp.position }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2>
+          <i class="fas fa-users"></i>
+          Associations
+        </h2>
+        <ul class="associations-list">
+          <li *ngFor="let assoc of therapist.presentation.associations">{{ assoc }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Schedule Section -->
+    <div id="schedule" class="content-section">
+      <div class="info-card">
+        <h2>
+          <i class="fas fa-clock"></i>
+          Horaires et coordonnées
+        </h2>
+        <div class="schedule-info">
+          <h3>Horaires d'ouverture</h3>
+          <p>{{ therapist.presentation.schedule.openingHours }}</p>
+
+          <h3>Contact d'urgence</h3>
+          <p>{{ therapist.presentation.schedule.emergency }}</p>
+
+          <h3>Coordonnées</h3>
+          <p>{{ therapist.presentation.schedule.phone }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div id="pricing" class="content-section">
+      <div class="info-card">
+        <h2>
+          <i class="fas fa-euro-sign"></i>
+          Tarifs
+        </h2>
+        <div class="pricing-info">
+          <p class="consultation-price">
+            Consultation de psychologie (variable suivant la situation)
+            <span class="price">{{ therapist.presentation.pricing.consultation }}</span>
+          </p>
+          <p class="pricing-notice">{{ therapist.presentation.pricing.notice }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="summary-card">
+      <h3>En résumé</h3>
+      <p class="accept-patients">
+        <i class="fas fa-user-check"></i>
+        Accepte les nouveaux patients sur Doctolib
+      </p>
+      <p class="address">
+        <i class="fas fa-map-marker-alt"></i>
+        {{ therapist.address }}
+      </p>
+      <button class="book-button" (click)="bookAppointment()">
+        <i class="fas fa-calendar-alt"></i>
+        PRENDRE RENDEZ-VOUS
+      </button>
+      <p class="contact-info">
+        Vous pouvez contacter votre soignant pour certaines demandes simples hors rendez-vous.
+      </p>
+      <button class="message-button" (click)="sendMessage()">
+        <i class="fas fa-envelope"></i>
+        ENVOYER UN MESSAGE
+      </button>
+    </div>
+  </aside>
+</div>

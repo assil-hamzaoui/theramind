@@ -1,0 +1,70 @@
+<div class="container">
+  <header class="header">
+    <div class="icon-container">
+      <i class="heart-icon"></i>
+    </div>
+    <h1>Wellness & Joy</h1>
+    <p>Discover content that nurtures your mind, body, and spirit for a healthier, happier you.</p>
+  </header>
+
+  <div class="content-grid">
+    <section class="content-section">
+      <div class="section-header">
+        <i class="music-icon"></i>
+        <h2>Wellness Playlist</h2>
+      </div>
+      <p>A calming playlist designed to promote wellness and inner peace.</p>
+      <div class="spotify-container">
+        <iframe
+          [src]="spotifyEmbedUrl | safe"
+          frameBorder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          title="Spotify Wellness Playlist">
+        </iframe>
+        <a [href]="spotifyPlaylistUrl" target="_blank" rel="noopener noreferrer" class="spotify-button">
+          Open in Spotify
+          <i class="external-link-icon"></i>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-header">
+        <i class="youtube-icon"></i>
+        <h2>Mindful Content</h2>
+      </div>
+      <p>Discover channels that promote wellness and mindful living:</p>
+      <div class="channels-grid">
+        <div *ngFor="let channel of channels" class="channel-card">
+          <h3>{{channel.name}}</h3>
+          <p>{{channel.description}}</p>
+          <a [href]="channel.url" target="_blank" rel="noopener noreferrer">
+            Visit Channel
+            <i class="external-link-icon"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="quotes-section">
+    <div class="section-header">
+      <i class="quote-icon"></i>
+      <h2>Wellness Wisdom</h2>
+    </div>
+    <div class="quote-container" [class.fade-in]="fadeIn">
+      <p class="quote-text">"{{quotes[currentQuoteIndex].text}}"</p>
+      <p class="quote-author">— {{quotes[currentQuoteIndex].author}}</p>
+    </div>
+    <div class="quote-dots">
+      <button
+        *ngFor="let quote of quotes; let i = index"
+        (click)="changeQuote(i)"
+        [class.active]="currentQuoteIndex === i"
+        class="quote-dot"
+        [attr.aria-label]="'Quote ' + (i + 1)">
+      </button>
+    </div>
+  </section>
+</div>

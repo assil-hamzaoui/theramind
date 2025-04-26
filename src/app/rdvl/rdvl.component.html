@@ -1,0 +1,64 @@
+<div class="rdvl-container">
+  <h1>{{ pageTitle }}</h1>
+  <p class="subtitle">{{ subtitle }}</p>
+
+  <div class="content-wrapper">
+    <div class="main-content">
+      <button class="back-button" (click)="goBack()">
+        <i class="fas fa-arrow-left"></i> Étape précédente
+      </button>
+
+      <h2>Choisissez la date de consultation</h2>
+
+      <div class="dates-list">
+        <div *ngFor="let dateItem of dates" class="date-item">
+          <div class="date-header" (click)="toggleDateExpansion(dateItem)">
+            <span class="date-text">{{ dateItem.date }}</span>
+            <i class="fas" [class.fa-chevron-up]="dateItem.isExpanded" [class.fa-chevron-down]="!dateItem.isExpanded"></i>
+          </div>
+
+          <div class="time-slots" *ngIf="dateItem.isExpanded">
+            <button *ngFor="let slot of dateItem.timeSlots"
+                    class="time-slot"
+                    [class.selected]="isSlotSelected(dateItem, slot)"
+                    (click)="selectTimeSlot(dateItem, slot)">
+              {{ slot.time }}
+            </button>
+          </div>
+        </div>
+
+        <button class="more-dates-button" (click)="loadMoreDates()">
+          VOIR PLUS DE DATES
+        </button>
+      </div>
+    </div>
+
+    <div class="appointment-details">
+      <div class="therapist-info">
+        <img [src]="therapist.image" [alt]="therapist.name" class="therapist-image">
+        <div class="therapist-details">
+          <h3>{{ therapist.name }}</h3>
+          <p>{{ therapist.title }}</p>
+        </div>
+      </div>
+
+      <div class="appointment-summary">
+        <h4>Votre rendez-vous en détail</h4>
+        <ul>
+          <li>
+            <i class="fas fa-check"></i>
+            {{ appointmentDetails.patientName }}
+          </li>
+          <li>
+            <i class="fas fa-check"></i>
+            {{ appointmentDetails.address }}
+          </li>
+          <li>
+            <i class="fas fa-check"></i>
+            {{ appointmentDetails.type }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

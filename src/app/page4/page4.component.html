@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="progress-bar">
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+  </div>
+
+  <h1>Help us match you to the <span class="highlight">right therapist</span></h1>
+
+  <p class="description">
+    It's important to have a therapist who you can establish a personal connection with. The following questions
+    are designed to match you to a licensed therapist based on your therapy needs and personal preferences.
+  </p>
+
+  <div class="question-card">
+    <h2>How do you identify?</h2>
+
+    <button class="option-button" (click)="selectOption('Straight')">
+      Straight
+    </button>
+
+    <button class="option-button" (click)="selectOption('Gay')">
+      Gay
+    </button>
+
+    <button class="option-button" (click)="selectOption('Lesbian')">
+      Lesbian
+    </button>
+
+    <button class="option-button" (click)="selectOption('Bi or Pan')">
+      Bi or Pan
+    </button>
+
+    <button class="option-button" (click)="selectOption('Prefer not to say')">
+      Prefer not to say
+    </button>
+
+    <a class="more-options-link" (click)="toggleMoreOptions()">More options</a>
+
+    <div *ngIf="showMoreOptions" class="expanded-options">
+      <button class="option-button" (click)="selectOption('Queer')">
+        Queer
+      </button>
+      <button class="option-button" (click)="selectOption('Asexual')">
+        Asexual
+      </button>
+      <button class="option-button" (click)="selectOption('Self-describe')">
+        Self-describe
+      </button>
+    </div>
+
+    <div class="info-box">
+      <div class="info-icon">i</div>
+      <p>
+        Your answer will help us match you to a suitable therapist as well as help your therapist create a treatment plan that respects your identity and experiences.
+      </p>
+    </div>
+  </div>
+</div>

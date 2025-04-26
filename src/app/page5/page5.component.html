@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="progress-bar">
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+  </div>
+
+  <h1>Help us match you to the <span class="highlight">right therapist</span></h1>
+
+  <p class="description">
+    It's important to have a therapist who you can establish a personal connection with. The following questions
+    are designed to match you to a licensed therapist based on your therapy needs and personal preferences.
+  </p>
+
+  <div class="question-card">
+    <h2>What is your relationship status?</h2>
+
+    <button class="option-button" (click)="selectOption('Single')">
+      Single
+    </button>
+
+    <button class="option-button" (click)="selectOption('In a relationship')">
+      In a relationship
+    </button>
+
+    <button class="option-button" (click)="selectOption('Married')">
+      Married
+    </button>
+
+    <button class="option-button" (click)="selectOption('Divorced')">
+      Divorced
+    </button>
+
+    <button class="option-button" (click)="selectOption('Widowed')">
+      Widowed
+    </button>
+
+    <button class="option-button" (click)="selectOption('Other')">
+      Other
+    </button>
+  </div>
+</div>

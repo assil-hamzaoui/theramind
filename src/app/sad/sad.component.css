@@ -1,0 +1,59 @@
+.sad-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.section {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.quote-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.quote {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.quote:hover {
+  transform: translateY(-5px);
+}
+
+.quote p {
+  color: #34495e;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.quote cite {
+  color: #7f8c8d;
+  font-size: 1rem;
+}
+
+iframe {
+  border-radius: 10px;
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

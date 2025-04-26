@@ -1,0 +1,255 @@
+.sidebar-container {
+  position: relative;
+  height: 100%;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: transparent;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+}
+
+.sidebar-toggle.open {
+  left: 280px;
+}
+
+.arrow {
+  color: #4361ee;
+  transition: transform 0.3s ease;
+  transform: scale(1.5);
+}
+
+.sidebar-toggle.open .arrow {
+  transform: rotate(180deg) scale(1.5);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 280px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease-in-out;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar-content {
+  padding: 24px 16px;
+  position: relative;
+  z-index: 2;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 24px;
+  text-align: center;
+  animation: titlePulse 2s ease-in-out infinite;
+}
+
+.emotion-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.emotion-link {
+  display: block;
+  padding: 12px 16px;
+  background-color: #f5f7ff;
+  color: #4361ee;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.emotion-link:hover {
+  background-color: #e6ecff;
+  color: #4361ee;
+  transform: translateX(8px);
+}
+
+.floating-circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 8s infinite linear;
+}
+
+.circle-beige {
+  background: rgba(245, 222, 179, 0.3);
+}
+
+.circle-blue {
+  background: rgba(67, 97, 238, 0.1);
+}
+
+.circle:nth-child(1) {
+  width: 60px;
+  height: 60px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.circle:nth-child(2) {
+  width: 40px;
+  height: 40px;
+  top: 30%;
+  right: 10%;
+  animation-delay: -2s;
+}
+
+.circle:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  left: 20%;
+  animation-delay: -4s;
+}
+
+.circle:nth-child(4) {
+  width: 50px;
+  height: 50px;
+  bottom: 30%;
+  right: 20%;
+  animation-delay: -6s;
+}
+
+.floating-emojis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.emoji {
+  position: absolute;
+  font-size: 24px;
+  animation: floatEmoji 10s infinite linear;
+  opacity: 0.7;
+}
+
+.emoji:nth-child(1) {
+  top: 15%;
+  left: 15%;
+  animation-delay: -1s;
+}
+
+.emoji:nth-child(2) {
+  top: 45%;
+  right: 15%;
+  animation-delay: -3s;
+}
+
+.emoji:nth-child(3) {
+  bottom: 25%;
+  left: 25%;
+  animation-delay: -5s;
+}
+
+.emoji:nth-child(4) {
+  bottom: 35%;
+  right: 25%;
+  animation-delay: -7s;
+}
+
+@keyframes titlePulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(10px, 10px) rotate(90deg);
+  }
+  50% {
+    transform: translate(0, 20px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-10px, 10px) rotate(270deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+@keyframes floatEmoji {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(15px, 15px) rotate(45deg) scale(1.1);
+  }
+  50% {
+    transform: translate(0, 30px) rotate(90deg) scale(1);
+  }
+  75% {
+    transform: translate(-15px, 15px) rotate(45deg) scale(0.9);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 240px;
+  }
+
+  .sidebar-toggle.open {
+    left: 240px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  .emotion-link {
+    padding: 10px 12px;
+  }
+}

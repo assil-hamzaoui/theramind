@@ -1,0 +1,36 @@
+<div class="sidebar-container">
+  <div class="sidebar-toggle" [class.open]="isOpen" (click)="toggleSidebar()">
+    <div class="arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 18l6-6-6-6"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="sidebar" [class.open]="isOpen">
+    <div class="floating-circles">
+      <div class="circle circle-beige"></div>
+      <div class="circle circle-blue"></div>
+      <div class="circle circle-beige"></div>
+      <div class="circle circle-blue"></div>
+    </div>
+    <div class="floating-emojis">
+      <div class="emoji">👶</div>
+      <div class="emoji">👧</div>
+      <div class="emoji">👦</div>
+      <div class="emoji">🎈</div>
+    </div>
+    <div class="sidebar-content">
+      <h2>HOW ARE YOU FEELING TODAY?</h2>
+
+      <div class="emotion-links">
+        <a class="emotion-link" routerLink="/happy">HAPPY</a>
+        <a class="emotion-link" routerLink="/sad">SAD</a>
+        <a class="emotion-link" routerLink="/excited">EXCITED</a>
+        <a class="emotion-link" routerLink="/calm">CALM</a>
+        <a class="emotion-link" routerLink="/anxious">ANXIOUS</a>
+        <a class="emotion-link" routerLink="/tired">TIRED</a>
+      </div>
+    </div>
+  </div>
+</div>

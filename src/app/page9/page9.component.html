@@ -1,0 +1,63 @@
+<div class="container">
+  <h1 class="main-title">A safe and supportive space for straight individuals seeking professional help</h1>
+
+  <div class="filters">
+    <button class="filter-button">
+      <i class="fas fa-calendar"></i> Disponibilités
+    </button>
+    <button class="filter-button">
+      <i class="fas fa-language"></i> Langues parlées
+    </button>
+    <button class="filter-button">
+      <i class="fas fa-filter"></i> Plus de filtres
+    </button>
+  </div>
+
+  <div class="therapists-list">
+    <div class="therapist-card" *ngFor="let therapist of therapists">
+      <div class="therapist-info">
+        <img [src]="therapist.image" [alt]="therapist.name" class="therapist-image">
+        <div class="therapist-details">
+          <h2 class="therapist-name">
+            {{ therapist.name }}
+            <i *ngIf="therapist.hasVideo" class="fas fa-video video-icon"></i>
+          </h2>
+          <p class="therapist-title">{{ therapist.title }}</p>
+          <p class="therapist-address">
+            <i class="fas fa-map-marker-alt"></i>
+            {{ therapist.address }}
+          </p>
+        </div>
+        <button class="book-button" (click)="goToRdvs(therapist)">PRENDRE RENDEZ-VOUS</button>
+      </div>
+
+      <div class="calendar-section">
+        <div class="calendar-header">
+          <button class="nav-button">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="days-container">
+            <div class="day-column" *ngFor="let slot of therapist.availableSlots">
+              <div class="day-header">
+                <span class="day-name">{{ slot.day }}</span>
+                <span class="day-date">{{ slot.date }}</span>
+              </div>
+              <div class="time-slots">
+                <button
+                  *ngFor="let time of slot.times"
+                  class="time-slot"
+                  (click)="bookAppointment(therapist, slot.date, time)"
+                >
+                  {{ time }}
+                </button>
+              </div>
+            </div>
+          </div>
+          <button class="nav-button">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

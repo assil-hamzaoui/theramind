@@ -1,0 +1,65 @@
+.rdvl-container{max-width:1200px;margin:40px auto;padding:0 20px}.rdvl-container h1{font-size:24px;font-weight:600;color:#1a1a1a;margin-bottom:8px}.rdvl-container .subtitle{font-size:16px;color:#666;margin-bottom:32px}.content-wrapper{display:grid;grid-template-columns:2fr 1fr;gap:24px}.main-content{background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.1);padding:24px}.back-button{display:inline-flex;align-items:center;gap:8px;color:#666;background:none;border:none;padding:0;margin-bottom:32px;cursor:pointer;font-size:14px}.back-button i{font-size:12px}.back-button:hover{color:#333}.main-content h2{font-size:18px;font-weight:600;color:#1a1a1a;margin-bottom:24px}.dates-list{display:flex;flex-direction:column;gap:12px}.date-item{border:1px solid #e5e7eb;border-radius:8px;overflow:hidden}.date-header{padding:16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:background-color .2s}.date-header:hover{background-color:#f9fafb}.date-text{font-size:15px;font-weight:500;color:#1a1a1a}.date-header i{color:#9ca3af;font-size:12px}.time-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;padding:16px;background-color:#f9fafb}.time-slot{padding:8px 12px;border:none;border-radius:6px;background:#fff;color:#2563eb;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s}.time-slot:hover{background-color:#2563eb;color:#fff}.time-slot.selected{background-color:#2563eb;color:#fff}.more-dates-button{width:100%;padding:14px;margin-top:16px;border:1px solid #e5e7eb;border-radius:8px;background:none;color:#2563eb;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s}.more-dates-button:hover{background-color:#f9fafb}.appointment-details .therapist-info{background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.1);padding:20px;display:flex;align-items:center;gap:16px;margin-bottom:24px}.therapist-image{width:48px;height:48px;border-radius:50%;object-fit:cover}.therapist-details h3{font-size:16px;font-weight:600;color:#1a1a1a;margin:0 0 4px}.therapist-details p{font-size:14px;color:#666;margin:0}.appointment-summary{background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.1);padding:20px}.appointment-summary h4{font-size:16px;font-weight:600;color:#1a1a1a;margin:0 0 20px}.appointment-summary ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px}.appointment-summary li{display:flex;align-items:center;gap:12px;color:#666;font-size:14px}.appointment-summary li i{color:#10b981;font-size:12px}
+
+.confirm-button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.confirm-button:hover:not(:disabled) {
+    background-color: #1d4ed8;
+}
+
+.confirm-button:disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: loading-spinner 0.6s linear infinite;
+}
+
+@keyframes loading-spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 24px 0;
+}
+
+.price span {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+}
+
+@media (max-width:768px){.rdvl-container{margin:20px auto}.content-wrapper{grid-template-columns:1fr}.time-slots{grid-template-columns:repeat(auto-fill,minmax(80px,1fr))}.appointment-details .therapist-info{margin-bottom:16px}}

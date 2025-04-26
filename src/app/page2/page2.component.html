@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="progress-bar">
+      <div class="progress-step active"></div>
+      <div class="progress-step active"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+  </div>
+
+  <h1>Help us match you to the <span class="highlight">right therapist</span></h1>
+
+  <p class="description">
+    It's important to have a therapist who you can establish a personal connection with. The following questions
+    are designed to match you to a licensed therapist based on your therapy needs and personal preferences.
+  </p>
+
+  <div class="question-card">
+    <h2>What is your gender identity?</h2>
+
+    <button
+      class="option-button"
+      (click)="selectOption('Woman')" routerLink="/page3">
+      Woman
+    </button>
+
+    <button
+      class="option-button"
+      (click)="selectOption('Man')" routerLink="/page3">
+      Man
+    </button>
+
+    <a class="more-options-link" (click)="toggleMoreOptions()">More options</a>
+
+    <div *ngIf="showMoreOptions" class="expanded-options">
+      <button
+        class="option-button"
+        (click)="selectOption('Non-binary')" routerLink="/page3">
+        Non-binary
+      </button>
+      <button
+        class="option-button"
+        (click)="selectOption('Transgender')" routerLink="/page3">
+        Transgender
+      </button>
+      <button
+        class="option-button"
+        (click)="selectOption('Prefer not to say')" routerLink="/page3">
+        Prefer not to say
+      </button>
+      <button
+        class="option-button"
+        (click)="selectOption('Self-describe')" routerLink="/page3">
+        Self-describe
+      </button>
+    </div>
+
+    <div class="info-box">
+      <div class="info-icon">i</div>
+      <p>
+        Gender plays an important role in shaping personal identity and
+        experiences. This information will help your therapist create a
+        more personalized approach.
+      </p>
+    </div>
+  </div>
+
+  <button class="next-button" routerLink="/page3">Next</button>
+
+</div>
