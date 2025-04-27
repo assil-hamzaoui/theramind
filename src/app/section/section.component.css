@@ -109,11 +109,7 @@
   align-items: center;
   padding: 10px;
   border-radius: 25px;
-
-
 }
-
-
 
 .search-form {
   display: flex;
@@ -486,8 +482,29 @@ p {
 
 h2 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: #333;
+}
+
+.doctors-link {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.btn-doctors {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.btn-doctors:hover {
+  background-color: #e9ecef;
+  border-color: #bbb;
 }
 
 .content-container {
@@ -1951,4 +1968,6 @@ h2 {
     font-size: 16px;
   }
 }
+
+
 

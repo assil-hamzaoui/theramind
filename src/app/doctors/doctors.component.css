@@ -1,0 +1,159 @@
+.doctors-section {
+  padding: 60px 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2d4964;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #1977cc;
+  bottom: 0;
+  left: calc(50% - 25px);
+}
+
+.section-title p {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.doctor-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.doctor-img {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+.doctor-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.doctor-card:hover .doctor-img img {
+  transform: scale(1.05);
+}
+
+.doctor-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.doctor-info h3 {
+  font-size: 20px;
+  color: #2d4964;
+  margin: 0 0 5px;
+  font-weight: 600;
+}
+
+.doctor-info h4 {
+  font-size: 14px;
+  color: #777;
+  margin: 0 0 15px;
+  font-weight: 500;
+}
+
+.doctor-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 20px 20px;
+}
+
+.btn {
+  font-family: "Raleway", sans-serif;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-contact {
+  background: #edf8ff;
+  color: #1977cc;
+}
+
+.btn-contact:hover {
+  background: #1977cc;
+  color: white;
+}
+
+.btn-appointment {
+  background: #1977cc;
+  color: white;
+}
+
+.btn-appointment:hover {
+  background: #166ab5;
+}
+
+@media (max-width: 768px) {
+  .doctors-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
+  }
+
+  .doctor-img {
+    height: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .doctors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title h2 {
+    font-size: 24px;
+  }
+}

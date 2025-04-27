@@ -8,7 +8,6 @@ import { AproposComponent } from './apropos/apropos.component';
 import { VideoComponent } from './video/video.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ExploreComponent } from './explore/explore.component';
-import { DoctorComponent } from './doctor/doctor.component';
 import { ConsultationsComponent } from './consultations/consultations.component';
 import { MessagesComponent } from './messages/messages.component';
 import { PricingCardComponent } from './pricing-card/pricing-card.component';
@@ -31,8 +30,11 @@ import { RdvlComponent } from './rdvl/rdvl.component';
 import { HappyComponent } from './happy/happy.component';
 import { SadComponent } from './sad/sad.component';
 import { AideComponent } from './aide/aide.component';
+import { DoctorComponent } from './doctors/doctors.component';
+
 
 const routes: Routes = [
+  { path: 'doctors', component: DoctorComponent },
   { path: '', component: SectionComponent, pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignupComponent },
@@ -41,7 +43,6 @@ const routes: Routes = [
   { path: 'video', component: VideoComponent},
   { path: 'profil', component: ProfilComponent},
   {path: 'explore',component:ExploreComponent},
-  {path:'doctor',component:DoctorComponent},
   {path:'consultations',component:ConsultationsComponent},
   {path:'messages',component:MessagesComponent},
   {path:'pricing-card',component:PricingCardComponent},

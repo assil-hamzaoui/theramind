@@ -1,0 +1,24 @@
+<section class="doctors-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>OUR THERAPISTS</h2>
+      <p>Meet our experienced mental health professionals dedicated to your well-being.</p>
+    </div>
+
+    <div class="doctors-grid">
+      <div class="doctor-card" *ngFor="let doctor of doctors">
+        <div class="doctor-img">
+          <img [src]="doctor.imageUrl" [alt]="doctor.name">
+        </div>
+        <div class="doctor-info">
+          <h3>{{doctor.name}}</h3>
+          <h4>{{doctor.specialty}}</h4>
+        </div>
+        <div class="doctor-actions">
+          <button class="btn btn-contact" (click)="contactDoctor(doctor.id)">Contact Me</button>
+          <button class="btn btn-appointment" (click)="bookAppointment(doctor.id)">Book an Appointment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 import { AproposComponent } from './apropos/apropos.component';
 import { VideoComponent } from './video/video.component';
 import { ProfilComponent } from './profil/profil.component';
-import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorComponent } from './doctors/doctors.component';
 import { ConsultationsComponent } from './consultations/consultations.component';
 import { PricingCardComponent } from './pricing-card/pricing-card.component';
 import { FooterComponent } from './footer/footer.component';
@@ -51,7 +51,7 @@ export class ForgetPasswordModule { }
     SignInComponent,
     ExploreComponent,
     SignupComponent,
-    MessagesComponent,
+
     AproposComponent,
     VideoComponent,
     ProfilComponent,
@@ -71,7 +71,7 @@ export class ForgetPasswordModule { }
     HappyComponent,
     ExitedComponent,
     SafePipe,
-
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -87,6 +87,7 @@ export class ForgetPasswordModule { }
     Page6Component,
     HeaderComponent,
     DoctorComponent,
+    SadComponent,
 
   ],
   providers: [],

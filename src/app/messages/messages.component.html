@@ -1,362 +1,90 @@
-<!-- partial:index.partial.html -->
-<div class="center">
-  <div class="contacts">
-    <i class="fas fa-bars fa-2x"></i>
-    <h2>
-      Contacts
-    </h2>
-    <div class="contact">
-      <div class="pic rogers"></div>
-      <div class="badge">
-        14
-      </div>
-      <div class="name">
-        Dr Ahmed Ben Salah
-      </div>
-      <div class="message">
-        Bonjour Loulou comment vous etes?
-              </div>
-    </div>
-    <div class="contact">
-      <div class="pic stark"></div>
-      <div class="name">
-        Dr Fatma Boukadida
-      </div>
-      <div class="message">
-Bonjour Loulou comment vous etes ?
+<div class="messenger-container">
+  <!-- Chat Header -->
+  <div class="chat-header">
+    <div class="chat-info">
+      <div class="profile-picture therapist-avatar">T</div>
+      <div class="header-text">
+        <h2>Dr. Smith</h2>
+        <span class="status">{{ isTyping ? 'Typing...' : 'Active now' }}</span>
       </div>
     </div>
-    <div class="contact">
-      <div class="pic banner"></div>
-      <div class="badge">
-1
-      </div>
-      <div class="name">
-        Dr Med Trabelsi
-      </div>
-      <div class="message">
-        Bonjour Loulou comment vous etes ?
-      </div>
+    <div class="header-actions">
+      <button class="action-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </button>
     </div>
-    <div class="contact">
-      <div class="pic thor"></div>
-      <div class="name">
-        Dr Amira Chaabane
-      </div>
-      <div class="badge">
-        3
-      </div>
-      <div class="message">
-        Bonjour Loulou comment vous etes ?
+  </div>
 
+  <!-- Messages Area -->
+  <div class="messages-area" #scrollContainer>
+    <div *ngFor="let message of messages" 
+         class="message" 
+         [ngClass]="{'outgoing': message.from === 'patient', 'incoming': message.from === 'therapist'}">
+      <div class="message-content" 
+           [ngClass]="{'meet-message': message.type === 'meet'}"
+           (click)="message.type === 'meet' && message.meetLink && openMeetLink(message.meetLink)">
+        <div *ngIf="message.type === 'meet'" class="meet-content">
+          <img src="https://www.gstatic.com/meet/google_meet_horizontal_wordmark_2020q4_1x_icon_124_40_2373e79660dabbf194273d27aa7ee1f5.png" 
+               alt="Google Meet" 
+               class="meet-logo">
+          <p>{{ message.text }}</p>
+          <div class="meet-link">{{ message.meetLink }}</div>
+        </div>
+        <p *ngIf="message.type !== 'meet'">{{ message.text }}</p>
+        <div class="message-info">
+          <span class="message-time">{{ message.timestamp | date:'shortTime' }}</span>
+          <span *ngIf="message.from === 'patient'" class="message-status">
+            <svg *ngIf="message.status === 'sent'" class="status-icon" width="16" height="16" viewBox="0 0 24 24">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+            </svg>
+            <svg *ngIf="message.status === 'delivered'" class="status-icon" width="16" height="16" viewBox="0 0 24 24">
+              <path d="M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z" fill="currentColor"/>
+            </svg>
+            <svg *ngIf="message.status === 'seen'" class="status-icon seen" width="16" height="16" viewBox="0 0 24 24">
+              <path d="M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z" fill="currentColor"/>
+            </svg>
+          </span>
+        </div>
       </div>
     </div>
-    <div class="contact">
-      <div class="pic danvers"></div>
-      <div class="badge">
-        2
-      </div>
-      <div class="name">
-       Dr Sami Hamemi
-      </div>
-      <div class="message">
-        Bonjour Loulou comment vous etes ?
 
+    <!-- Typing Indicator -->
+    <div *ngIf="isTyping" class="message incoming">
+      <div class="typing-indicator">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
   </div>
-  <div class="chat">
-    <div class="contact bar">
-      <div class="pic stark"></div>
-      <div class="name">
-        Dr Ahmed Ben Salah
-      </div>
-      <div class="seen">
-        Today at 12:56
-      </div>
-    </div>
-    <div class="messages" id="chat">
-      <div class="time">
-        Today at 11:41
-      </div>
-      <div class="message parker">
-        Hello, Sarah. Thank you for coming in today.
-         How have you been feeling since our last session?  👋
-      </div>
-      <div class="message stark">
-        Honestly, not great. I've been having a lot of trouble sleeping,
-        and I feel constantly on edge
-      </div>
-      <div >
-        Okay we're going to fix this by contunig our consultation on-live
-      </div>
-      <div class="message parker">
-        <a routerLink="/video">www.consultationwithemma</a>
 
-      </div>
-
-      <div class="message stark">
-        <div class="typing typing-1"></div>
-        <div class="typing typing-2"></div>
-        <div class="typing typing-3"></div>
-      </div>
-    </div>
-    <div class="input">
-      <i class="fas fa-camera"></i><i class="far fa-laugh-beam"></i><input placeholder="Type your message here!" type="text" /><i class="fas fa-microphone"></i>
+  <!-- Message Input -->
+  <div class="message-input">
+    <div class="input-wrapper">
+      <button class="attachment-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="17 8 12 3 7 8"></polyline>
+          <line x1="12" y1="3" x2="12" y2="15"></line>
+        </svg>
+      </button>
+      <textarea 
+        [(ngModel)]="newMessage" 
+        placeholder="Write a message..." 
+        rows="1"
+        (keydown)="onKeyPress($event)"></textarea>
+      <button 
+        class="send-button" 
+        [disabled]="!newMessage.trim()"
+        (click)="sendMessage()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
     </div>
   </div>
 </div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script>var chat = document.getElementById('chat');
-   chat.scrollTop = chat.scrollHeight - chat.clientHeight;
-   </script>
-<style>
-  @import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,500,900&display=swap");
-body, html {
-  font-family: Red hat Display, sans-serif;
-  font-weight: 400;
-  line-height: 1.25em;
-  letter-spacing: 0.025em;
-  color: #333;
-  background: #F7F7F7;
-}
-
-.center {
-  position: absolute;
-  top: 50%;
-  left: calc(50% + 12rem);
-  transform: translate(-50%, -50%);
-}
-
-.pic {
-  width: 4rem;
-  height: 4rem;
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-}
-
-.contact {
-  position: relative;
-  margin-bottom: 1rem;
-  padding-left: 5rem;
-  height: 4.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.contact .pic {
-  position: absolute;
-  left: 0;
-}
-.contact .name {
-  font-weight: 500;
-  margin-bottom: 0.125rem;
-}
-.contact .message, .contact .seen {
-  font-size: 0.9rem;
-  color: #999;
-}
-.contact .badge {
-  box-sizing: border-box;
-  position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
-  text-align: center;
-  font-size: 0.9rem;
-  padding-top: 0.125rem;
-  border-radius: 1rem;
-  top: 0;
-  left: 2.5rem;
-  background: #333;
-  color: white;
-}
-
-.contacts {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(-6rem, -50%);
-  width: 24rem;
-  height: 32rem;
-  padding: 1rem 2rem 1rem 1rem;
-  box-sizing: border-box;
-  border-radius: 1rem 0 0 1rem;
-  cursor: pointer;
-  background: white;
-  box-shadow: 0 0 8rem 0 rgba(0, 0, 0, 0.1), 2rem 2rem 4rem -3rem rgba(0, 0, 0, 0.5);
-  transition: transform 500ms;
-}
-.contacts h2 {
-  margin: 0.5rem 0 1.5rem 5rem;
-}
-.contacts .fa-bars {
-  position: absolute;
-  left: 2.25rem;
-  color: #999;
-  transition: color 200ms;
-}
-.contacts .fa-bars:hover {
-  color: #666;
-}
-.contacts .contact:last-child {
-  margin: 0;
-}
-.contacts:hover {
-  transform: translate(-23rem, -50%);
-}
-
-.chat {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24rem;
-  height: 38rem;
-  z-index: 2;
-  box-sizing: border-box;
-  border-radius: 1rem;
-  background: white;
-  box-shadow: 0 0 8rem 0 rgba(0, 0, 0, 0.1), 0rem 2rem 4rem -3rem rgba(0, 0, 0, 0.5);
-}
-.chat .contact.bar {
-  flex-basis: 3.5rem;
-  flex-shrink: 0;
-  margin: 1rem;
-  box-sizing: border-box;
-}
-.chat .messages {
-  padding: 1rem;
-  background: #F7F7F7;
-  flex-shrink: 2;
-  overflow-y: auto;
-  box-shadow: inset 0 2rem 2rem -2rem rgba(0, 0, 0, 0.05), inset 0 -2rem 2rem -2rem rgba(0, 0, 0, 0.05);
-}
-.chat .messages .time {
-  font-size: 0.8rem;
-  background: #EEE;
-  padding: 0.25rem 1rem;
-  border-radius: 2rem;
-  color: #999;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 0 auto;
-}
-.chat .messages .message {
-  box-sizing: border-box;
-  padding: 0.5rem 1rem;
-  margin: 1rem;
-  background: #FFF;
-  border-radius: 1.125rem 1.125rem 1.125rem 0;
-  min-height: 2.25rem;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  max-width: 66%;
-  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.075), 0rem 1rem 1rem -1rem rgba(0, 0, 0, 0.1);
-}
-.chat .messages .message.parker {
-  margin: 1rem 1rem 1rem auto;
-  border-radius: 1.125rem 1.125rem 0 1.125rem;
-  background: #333;
-  color: white;
-}
-.chat .messages .message .typing {
-  display: inline-block;
-  width: 0.8rem;
-  height: 0.8rem;
-  margin-right: 0rem;
-  box-sizing: border-box;
-  background: #ccc;
-  border-radius: 50%;
-}
-.chat .messages .message .typing.typing-1 {
-  -webkit-animation: typing 3s infinite;
-          animation: typing 3s infinite;
-}
-.chat .messages .message .typing.typing-2 {
-  -webkit-animation: typing 3s 250ms infinite;
-          animation: typing 3s 250ms infinite;
-}
-.chat .messages .message .typing.typing-3 {
-  -webkit-animation: typing 3s 500ms infinite;
-          animation: typing 3s 500ms infinite;
-}
-.chat .input {
-  box-sizing: border-box;
-  flex-basis: 4rem;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  padding: 0 0.5rem 0 1.5rem;
-}
-.chat .input i {
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  color: #666;
-  cursor: pointer;
-  transition: color 200ms;
-}
-.chat .input i:hover {
-  color: #333;
-}
-.chat .input input {
-  border: none;
-  background-image: none;
-  background-color: white;
-  padding: 0.5rem 1rem;
-  margin-right: 1rem;
-  border-radius: 1.125rem;
-  flex-grow: 2;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1), 0rem 1rem 1rem -1rem rgba(0, 0, 0, 0.2);
-  font-family: Red hat Display, sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.025em;
-}
-.chat .input input:placeholder {
-  color: #999;
-}
-
-@-webkit-keyframes typing {
-  0%, 75%, 100% {
-    transform: translate(0, 0.25rem) scale(0.9);
-    opacity: 0.5;
-  }
-  25% {
-    transform: translate(0, -0.25rem) scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes typing {
-  0%, 75%, 100% {
-    transform: translate(0, 0.25rem) scale(0.9);
-    opacity: 0.5;
-  }
-  25% {
-    transform: translate(0, -0.25rem) scale(1);
-    opacity: 1;
-  }
-}
-.pic.stark {
-  background-image: url("https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/7/73/SMH_Mentor_6.png");
-}
-
-.pic.banner {
-  background-image: url("https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/4/4f/BruceHulk-Endgame-TravelingCapInPast.jpg");
-}
-
-.pic.thor {
-  background-image: url("https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/9/98/ThorFliesThroughTheAnus.jpg");
-}
-
-.pic.danvers {
-  background-image: url("https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/0/05/HeyPeterParker.png");
-}
-
-.pic.rogers {
-  background-image: url("https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/7/7c/Cap.America_%28We_Don%27t_Trade_Lives_Vision%29.png");
-}
-</style>
-
