@@ -11,8 +11,6 @@ interface Doctor {
 
 @Component({
   selector: 'app-doctor',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './doctors.component.html',
   styleUrls: ['./doctors.component.css']
 })

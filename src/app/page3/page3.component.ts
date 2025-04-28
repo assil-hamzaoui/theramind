@@ -5,8 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-page3',
-  standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+
   templateUrl: './page3.component.html',
   styleUrls: ['./page3.component.css']
 })

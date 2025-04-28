@@ -7,8 +7,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-page5',
   templateUrl: './page5.component.html',
   styleUrls: ['./page5.component.css'],
-  standalone: true,
-  imports: [CommonModule, RouterModule]
+
 })
 export class Page5Component {
   constructor(private router: Router) {}

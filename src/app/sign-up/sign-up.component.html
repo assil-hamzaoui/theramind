@@ -1,32 +1,60 @@
+<form class="form" (ngSubmit)="onSubmit()">
+  <p class="title">Register</p>
+  <p class="message"><strong>Signup now and get full access to our app.</strong></p>
 
-<form class="form">
-  <p class="title">Register </p>
-  <p class="message"><strong>Signup now and get full access to our app. </strong></p>
-      <div class="flex">
-      <label>
-          <input required="" placeholder="Firstname" type="text" class="input">
+  <div class="flex">
+    <label>
+      <input
+        required
+        placeholder="Firstname"
+        type="text"
+        class="input"
+        [(ngModel)]="formData.firstName"
+        name="firstName">
+    </label>
 
-      </label>
-
-      <label>
-          <input required="" placeholder="Lastname" type="text" class="input">
-
-      </label>
+    <label>
+      <input
+        required
+        placeholder="Lastname"
+        type="text"
+        class="input"
+        [(ngModel)]="formData.lastName"
+        name="lastName">
+    </label>
   </div>
 
   <label>
-      <input required="" placeholder="Email" type="email" class="input">
-
+    <input
+      required
+      placeholder="Email"
+      type="email"
+      class="input"
+      [(ngModel)]="formData.email"
+      name="email">
   </label>
 
   <label>
-      <input required="" placeholder="Password" type="password" class="input">
-
+    <input
+      required
+      placeholder="Password"
+      type="password"
+      class="input"
+      [(ngModel)]="formData.password"
+      name="password">
   </label>
+
   <label>
-      <input required="" placeholder="Confirm Password" type="password" class="input">
-
+    <input
+      required
+      placeholder="Confirm Password"
+      type="password"
+      class="input"
+      [(ngModel)]="formData.confirmPassword"
+      name="confirmPassword">
   </label>
+
   <button class="submit">Submit</button>
-  <h5 class="signin">Already have an acount ? <a routerLink="/sign-in"> Sign-In</a> </h5>
+
+  <h5 class="signin">Already have an account? <a routerLink="/sign-in">Sign-In</a></h5>
 </form>

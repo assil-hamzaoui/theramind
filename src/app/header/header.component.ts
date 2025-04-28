@@ -6,8 +6,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  standalone: true,
-  imports: [CommonModule, RouterModule]
 })
 export class HeaderComponent {
   goToVideo() {

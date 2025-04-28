@@ -4,8 +4,6 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-page2',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
   templateUrl: './page2.component.html',
   styleUrls: ['./page2.component.css']
 })

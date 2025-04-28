@@ -38,6 +38,7 @@ import { RdvlComponent } from './rdvl/rdvl.component';
 import { HappyComponent } from './happy/happy.component';
 import { ExitedComponent } from './exited/exited.component';
 import { SafePipe } from './safe.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SadComponent } from './sad/sad.component';
 
@@ -71,23 +72,29 @@ export class ForgetPasswordModule { }
     HappyComponent,
     ExitedComponent,
     SafePipe,
-    MessagesComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CommonModule,
-    FormsModule,
+    MessagesComponent,
+    SadComponent,
+    DoctorComponent,
+    HeaderComponent,
     SectionComponent,
     SideComponent,
     Page2Component,
     Page3Component,
     Page4Component,
     Page5Component,
-    Page6Component,
-    HeaderComponent,
-    DoctorComponent,
-    SadComponent,
+    Page6Component
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    HttpClientModule
+
+
+
+
+
 
   ],
   providers: [],

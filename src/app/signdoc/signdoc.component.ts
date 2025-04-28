@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';  // Import HttpClient to make HTTP requests
+import { Router } from '@angular/router';  // Import Router to navigate after form submission
 
 @Component({
   selector: 'app-signdoc',
@@ -6,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./signdoc.component.css']
 })
 export class SigndocComponent {
-  formData: FormData = {
+  formData = {
     firstName: '',
     lastName: '',
     postalCode: '',
@@ -16,27 +18,30 @@ export class SigndocComponent {
     requestType: ''
   };
 
+  constructor(private http: HttpClient, private router: Router) {}
+
+  // Submit the form to the backend
   onSubmit() {
+    // Log the form data to the console
     console.log('Form submitted:', this.formData);
-    if (this.isFormValid()) {
-      alert('Formulaire envoyé avec succès!');
+
+    // Perform validation for form fields if needed (you can enhance validation here)
+    if (this.formData.firstName && this.formData.lastName && this.formData.email) {
+      // Send the form data to the backend (Node.js)
+      this.http.post('http://localhost:5500/api/signup', this.formData)
+        .subscribe(
+          (response) => {
+            console.log('Signup successful:', response);
+            alert('Signup successful!');
+            this.router.navigate(['/sign-in']); // Redirect after successful signup
+          },
+          (error) => {
+            console.error('Signup error:', error);
+            alert('There was an error during signup.');
+          }
+        );
     } else {
-      alert('Veuillez remplir tous les champs obligatoires.');
+      alert('Please fill in all required fields.');
     }
   }
-
-  isFormValid(): boolean {
-    return Object.values(this.formData).every(field => field.trim() !== '');
-  }
 }
-
-interface FormData {
-  firstName: string;
-  lastName: string;
-  postalCode: string;
-  phone: string;
-  specialty: string;
-  email: string;
-  requestType: string;
-}
-

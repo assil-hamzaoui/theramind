@@ -6,8 +6,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-section',
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.css'],
-  standalone: true,
-  imports: [RouterModule, CommonModule]
+
 })
 export class SectionComponent implements OnInit, OnDestroy {
   messagesCount: number = 427307757;
