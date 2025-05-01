@@ -1,0 +1,47 @@
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border-left: 4px solid #323538;
+    box-shadow: 0 20px 22px rgba(0, 0, 0, 0.1);
+    padding: 8px 50px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 9999;
+    animation: slideIn 0.5s ease-in-out;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+  }
+  
+  .notification-icon {
+    margin-right: 1px;
+    font-size: 1px;
+  }
+  
+  .notification-message {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .notification-badge {
+    background: rgb(65, 1, 1);
+    color: white;
+    border-radius: 50%;
+    padding: 3px 8px;
+    font-size: 12px;
+    margin-left: auto;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

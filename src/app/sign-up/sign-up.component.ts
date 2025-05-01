@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; // Make sure to import HttpClient
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http'; // ✅ Tu dois ajouter ça
 
 @Component({
   selector: 'app-signup',
@@ -8,38 +8,38 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignupComponent {
-  formData = {
-    firstName: '',
-    lastName: '',
+  user = {
+    firstname: '',
+    lastname: '',
     email: '',
-    password: '',
-    confirmPassword: ''
+    password: ''
   };
 
-  // Inject HttpClient in the constructor
+  message: string = '';       // ✅ Message à afficher (succès ou erreur)
+  messageColor: string = '';  // ✅ Couleur du message (vert pour succès, rouge pour erreur)
+
   constructor(private http: HttpClient, private router: Router) {}
 
   onSubmit() {
-    // Log form data to console when the form is submitted
-    console.log('Form submitted:', this.formData);
+    this.http.post('http://localhost:5500/api/auth/signup', this.user).subscribe(
+      response => {
+        this.message = 'Inscription réussie ! Vous pouvez maintenant vous connecter.';
+        this.messageColor = 'green';
+        
+        setTimeout(() => {
+          this.router.navigate(['/sign-in']);
+        }, 2000); // ✅ On attend 2 secondes avant de rediriger
+      },
+      error => {
+        this.message = 'Échec de l\'inscription. Veuillez réessayer.';
+        this.messageColor = 'red';
+        console.error('Erreur d\'inscription', error);
 
-    // Validate if passwords match
-    if (this.formData.password !== this.formData.confirmPassword) {
-      alert('Passwords do not match!');
-    } else {
-      // Send the form data to the backend API (make sure the backend is running on this URL)
-      this.http.post('http://localhost:5500/api/signup', this.formData).subscribe(
-        (response) => {
-          console.log('Signup successful:', response);
-          alert('Signup successful!');
-          this.router.navigate(['/sign-in']); // Redirect to sign-in page after successful signup
-        },
-        (error) => {
-          console.error('Signup error:', error);
-          alert('There was an error during signup. Please try again.');
-        }
-      );
-    }
+        // ✅ Effacer le message d'erreur après 4 secondes
+        setTimeout(() => {
+          this.message = '';
+        }, 4000);
+      }
+    );
   }
 }
-

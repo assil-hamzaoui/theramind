@@ -1,0 +1,8 @@
+<div class="notification-container" *ngIf="showNotification">
+    <span class="notification-icon"></span>
+    <span class="notification-message">{{ currentMessage }}</span>
+    <span class="notification-badge">{{ notificationCount }}</span>
+  </div>
+  
+  <router-outlet></router-outlet>
+  

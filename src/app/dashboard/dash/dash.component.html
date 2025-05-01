@@ -1,0 +1,277 @@
+<div class="app-container">
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+      <div class="logo-container">
+        <div class="logo">
+          <span>T</span>
+        </div>
+        <h2 class="app-name">Thera-Mind</h2>
+        <button class="close-sidebar">&times;</button>
+      </div>
+      
+      <nav class="nav-menu">
+        <ul>
+          <li class="active">
+            <a href="/dash">
+              <i class="fas fa-th-large"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/apoint">
+              <i class="far fa-calendar-alt"></i>
+              <span>Appointments</span>
+            </a>
+          </li>
+          <li>
+            <a href="/thera">
+              <i class="fas fa-user-md"></i>
+              <span>Therapists</span>
+            </a>
+          </li>
+          <li>
+            <a href="/client">
+              <i class="fas fa-users"></i>
+              <span>Clients</span>
+            </a>
+          </li>
+          <li>
+            <a href="/reports">
+              <i class="far fa-chart-bar"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="/settings">
+              <i class="fas fa-cog"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="logout-container">
+        <a href="/logout" class="logout-btn">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </div>
+  
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="main-header">
+        <div class="page-title">
+          <h1>Admin Dashboard</h1>
+        </div>
+        <div class="header-right">
+          <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="notifications">
+            <i class="far fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </div>
+          <div class="admin-profile">
+            <span class="admin-name">Admin</span>
+            <div class="avatar">
+              <span>A</span>
+            </div>
+          </div>
+        </div>
+      </header>
+  
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+        <!-- Stats Cards -->
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-info">
+              <h3>Total Clients</h3>
+              <div class="stat-value">354</div>
+              <div class="stat-change">+14% from last month</div>
+            </div>
+            <div class="stat-icon clients-icon">
+              <i class="fas fa-users"></i>
+            </div>
+          </div>
+  
+          <div class="stat-card">
+            <div class="stat-info">
+              <h3>Sessions Today</h3>
+              <div class="stat-value">28</div>
+              <div class="stat-change">4 remaining</div>
+            </div>
+            <div class="stat-icon sessions-icon">
+              <i class="far fa-calendar-check"></i>
+            </div>
+          </div>
+  
+          <div class="stat-card">
+            <div class="stat-info">
+              <h3>Avg. Session Time</h3>
+              <div class="stat-value">52m</div>
+              <div class="stat-change">1.2m from last week</div>
+            </div>
+            <div class="stat-icon time-icon">
+              <i class="far fa-clock"></i>
+            </div>
+          </div>
+  
+          <div class="stat-card">
+            <div class="stat-info">
+              <h3>Therapy Success Rate</h3>
+              <div class="stat-value">78%</div>
+              <div class="stat-change">↑ 3% improvement</div>
+            </div>
+            <div class="stat-icon success-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Sessions and Calendar -->
+        <div class="sessions-calendar-container">
+          <!-- Today's Sessions Section -->
+          <div class="sessions-section">
+            <div class="section-header">
+              <h2>Today's Sessions</h2>
+              <div class="tabs">
+                <button class="tab active">Upcoming</button>
+                <button class="tab">Completed</button>
+                <button class="tab">Cancelled</button>
+              </div>
+            </div>
+            
+            <div class="session-list">
+              <!-- Session 1 -->
+              <div class="session-item">
+                <div class="session-details">
+                  <h4>Sarah Johnson</h4>
+                  <p class="session-time">10:00 AM - 11:00 AM</p>
+                  <p class="session-type">Cognitive Behavioral Therapy</p>
+                  <p class="therapist-name">Dr. Michael Rodriguez</p>
+                </div>
+                <div class="session-status upcoming">
+                  <span>Upcoming</span>
+                </div>
+              </div>
+              
+              <!-- Session 2 -->
+              <div class="session-item">
+                <div class="session-details">
+                  <h4>James Wilson</h4>
+                  <p class="session-time">11:30 AM - 12:30 PM</p>
+                  <p class="session-type">Anxiety Management</p>
+                  <p class="therapist-name">Dr. Amanda Chen</p>
+                </div>
+                <div class="session-status upcoming">
+                  <span>Upcoming</span>
+                </div>
+              </div>
+              
+              <!-- Session 3 -->
+              <div class="session-item">
+                <div class="session-details">
+                  <h4>Emily Davis</h4>
+                  <p class="session-time">2:00 PM - 3:00 PM</p>
+                  <p class="session-type">Depression Counseling</p>
+                  <p class="therapist-name">Dr. Robert Taylor</p>
+                </div>
+                <div class="session-status upcoming">
+                  <span>Upcoming</span>
+                </div>
+              </div>
+              
+              <!-- Session 4 -->
+              <div class="session-item">
+                <div class="session-details">
+                  <h4>David Miller</h4>
+                  <p class="session-time">4:30 PM - 5:30 PM</p>
+                  <p class="session-type">Stress Management</p>
+                  <p class="therapist-name">Dr. Sarah Williams</p>
+                </div>
+                <div class="session-status upcoming">
+                  <span>Upcoming</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Calendar Section -->
+          <div class="calendar-section">
+            <div class="calendar-header">
+              <h2>Calendar</h2>
+              <div class="month-navigation">
+                <button class="prev-month"><i class="fas fa-chevron-left"></i></button>
+                <h3>May 2025</h3>
+                <button class="next-month"><i class="fas fa-chevron-right"></i></button>
+              </div>
+            </div>
+            
+            <div class="calendar">
+              <div class="weekdays">
+                <div>Su</div>
+                <div>Mo</div>
+                <div>Tu</div>
+                <div>We</div>
+                <div>Th</div>
+                <div>Fr</div>
+                <div>Sa</div>
+              </div>
+              
+              <div class="days">
+                <div class="day other-month">27</div>
+                <div class="day other-month">28</div>
+                <div class="day other-month">29</div>
+                <div class="day other-month">30</div>
+                <div class="day current-day">1</div>
+                <div class="day">2</div>
+                <div class="day">3</div>
+                <div class="day">4</div>
+                <div class="day">5</div>
+                <div class="day">6</div>
+                <div class="day">7</div>
+                <div class="day">8</div>
+                <div class="day">9</div>
+                <div class="day">10</div>
+                <div class="day">11</div>
+                <div class="day">12</div>
+                <div class="day">13</div>
+                <div class="day">14</div>
+                <div class="day">15</div>
+                <div class="day">16</div>
+                <div class="day">17</div>
+                <div class="day">18</div>
+                <div class="day">19</div>
+                <div class="day">20</div>
+                <div class="day">21</div>
+                <div class="day">22</div>
+                <div class="day">23</div>
+                <div class="day">24</div>
+                <div class="day">25</div>
+                <div class="day">26</div>
+                <div class="day">27</div>
+                <div class="day">28</div>
+                <div class="day">29</div>
+                <div class="day">30</div>
+                <div class="day">31</div>
+              </div>
+            </div>
+            
+            <div class="recent-activities">
+              <h3>Recent Activities</h3>
+              <div class="activity">
+                <span class="activity-dot"></span>
+                <p>Dr. Rodriguez completed session with Emily Davis</p>
+                <span class="activity-time">30 minutes ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

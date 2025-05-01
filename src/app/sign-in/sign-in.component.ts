@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router'; // For navigation
-import { HttpClient } from '@angular/common/http'; // For making HTTP requests
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,45 +8,55 @@ import { HttpClient } from '@angular/common/http'; // For making HTTP requests
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent {
-  // Define variables for the form
-  email: string = '';
-  password: string = '';
-  rememberMe: boolean = false;
+  user = {
+    email: '',
+    password: '',
+    rememberMe: false
+  };
+  message = '';
+  messageType = ''; // 'success' or 'error'
 
-  // API URL for the backend (replace with your actual backend URL)
-  apiUrl: string = 'http://localhost:5500/api/auth/login'; // Adjust this URL based on your backend
+  constructor(private http: HttpClient, private router: Router) {}
 
-  constructor(
-    private router: Router,
-    private http: HttpClient // Injecting HttpClient to make requests
-  ) {}
-
-  // Function to submit the form
   onSubmit() {
-    if (this.email && this.password) {
-      const formData = {
-        email: this.email,
-        password: this.password,
-        rememberMe: this.rememberMe
-      };
+    const loginUrl = 'http://localhost:5500/api/auth/login';
 
-      // Sending the form data to the backend via HTTP POST request
-      this.http.post(this.apiUrl, formData).subscribe(
-        (response: any) => {
-          if (response.success) {
-            // Redirect to dashboard or home page if login is successful
-            this.router.navigate(['/dashboard']);
-          } else {
-            alert('Email or password is incorrect');
-          }
-        },
-        (error) => {
-          alert('An error occurred while logging in');
-          console.error(error);
+    this.http.post(loginUrl, this.user).subscribe(
+      (response: any) => {
+        console.log('Login successful', response);
+
+        // Store the token in localStorage or sessionStorage based on rememberMe
+        if (this.user.rememberMe) {
+          localStorage.setItem('authToken', response.token); // Persist token for longer time
+        } else {
+          sessionStorage.setItem('authToken', response.token); // Store for the session
         }
-      );
-    } else {
-      alert('Please fill in all the fields correctly');
-    }
+
+        // Redirect user based on role
+        if (response.redirectTo === '/admin/dashboard') {
+          this.message = '✅ Bienvenue administrateur ! ';
+          this.messageType = 'success';
+          setTimeout(() => {
+            this.message = '';
+            this.router.navigate(['/dash']);
+          }, 1500);
+        } else {
+          this.message = '✅ Bienvenue sur Theramind ! Connexion réussie.';
+          this.messageType = 'success';
+          setTimeout(() => {
+            this.message = '';
+            this.router.navigate(['/']);
+          }, 1500);
+        }
+      },
+      (error) => {
+        console.error('Login failed', error);
+        this.message = '❌ Échec de la connexion. Vérifiez vos identifiants.';
+        this.messageType = 'error';
+
+        // Clear the message after 4 seconds
+        setTimeout(() => this.message = '', 3000);
+      }
+    );
   }
 }

@@ -1,60 +1,38 @@
-<form class="form" (ngSubmit)="onSubmit()">
+<form class="form" (ngSubmit)="onSubmit()" #registerForm="ngForm">
   <p class="title">Register</p>
   <p class="message"><strong>Signup now and get full access to our app.</strong></p>
 
   <div class="flex">
     <label>
-      <input
-        required
-        placeholder="Firstname"
-        type="text"
-        class="input"
-        [(ngModel)]="formData.firstName"
-        name="firstName">
+      <input required placeholder="Firstname" type="text" class="input"
+             [(ngModel)]="user.firstname" name="firstname">
     </label>
-
     <label>
-      <input
-        required
-        placeholder="Lastname"
-        type="text"
-        class="input"
-        [(ngModel)]="formData.lastName"
-        name="lastName">
+      <input required placeholder="Lastname" type="text" class="input"
+             [(ngModel)]="user.lastname" name="lastname">
     </label>
   </div>
 
   <label>
-    <input
-      required
-      placeholder="Email"
-      type="email"
-      class="input"
-      [(ngModel)]="formData.email"
-      name="email">
+    <input required placeholder="Email" type="email" class="input"
+           [(ngModel)]="user.email" name="email">
   </label>
 
   <label>
-    <input
-      required
-      placeholder="Password"
-      type="password"
-      class="input"
-      [(ngModel)]="formData.password"
-      name="password">
+    <input required placeholder="Password" type="password" class="input"
+           [(ngModel)]="user.password" name="password">
   </label>
 
-  <label>
-    <input
-      required
-      placeholder="Confirm Password"
-      type="password"
-      class="input"
-      [(ngModel)]="formData.confirmPassword"
-      name="confirmPassword">
-  </label>
+  <button class="submit" type="submit">Submit</button>
 
-  <button class="submit">Submit</button>
-
-  <h5 class="signin">Already have an account? <a routerLink="/sign-in">Sign-In</a></h5>
+  <h5 class="signin">
+    Already have an account? <a routerLink="/sign-in">Sign-In</a>
+  </h5>
 </form>
+<div *ngIf="message" [ngClass]="{'alert': true, 'success': messageColor === 'green', 'error': messageColor === 'red'}">
+  <span class="icon">
+    <ng-container *ngIf="messageColor === 'green'">✅</ng-container>
+    <ng-container *ngIf="messageColor === 'red'">❌</ng-container>
+  </span>
+  {{ message }}
+</div>

@@ -1,0 +1,39 @@
+<div class="call-waiting-page">
+    <audio id="call-sound" autoplay loop>
+      <source src="assets/phone" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  
+    <!-- Call Card -->
+    <div class="call-card">
+      <div class="user-info">
+        <img src="assets/images/docs.png" alt="Therapist" class="avatar">
+        <h2>Therapist is calling...</h2>
+        
+        <div class="options">
+          <button class="btn video-btn">📹 Video</button>
+          <button class="btn voice-btn">🎙️ Voice</button>
+          <button class="btn message-btn">💬 Message</button>
+        </div>
+  
+        <div class="back-link">
+          <button (click)="goBack()" class="btn-back">⬅️ Return</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Processing Message -->
+    <div *ngIf="processingMessage" class="processing-message">
+      <p>{{ processingMessage }}</p>
+    </div>
+  
+    <!-- Payment Modal -->
+    <div class="payment-modal" *ngIf="showPaymentModal">
+      <div class="modal-content">
+        <h3>Ready for Consultation!</h3>
+        <p>Click below to proceed to payment:</p>
+        <button (click)="onProceedToPayment()" class="payment-btn">💳 Pay Now</button>
+      </div>
+    </div>
+  </div>
+  

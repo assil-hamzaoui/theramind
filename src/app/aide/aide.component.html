@@ -1,59 +1,112 @@
-<div class="aide-container">
-  <header class="aide-header">
-    <h1>Centre d'aide</h1>
-    <p>Comment pouvons-nous vous aider aujourd'hui ?</p>
-    <div class="search-box">
-      <input type="text" placeholder="Rechercher une réponse...">
-      <button><i class="fas fa-search"></i></button>
+<div class="help-container">
+  <header class="help-header">
+    <div class="header-content">
+      <h1>Help Center</h1>
+      <p>How can we assist you today?</p>
+      <div class="search-box">
+        <input type="text" placeholder="Search for answers...">
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="header-image">
+      <img src="assets/images/help-center.svg" alt="Help Center" onerror="this.src='assets/images/psy.png'">
     </div>
   </header>
 
   <section class="categories-section">
-    <h2>Catégories</h2>
+    <h2>Categories</h2>
     <div class="categories-grid">
       <div class="category-card" *ngFor="let category of categories">
         <div class="category-icon">{{ category.icon }}</div>
         <h3>{{ category.title }}</h3>
         <p>{{ category.description }}</p>
+        <button class="category-btn">Learn more</button>
       </div>
     </div>
   </section>
 
   <section class="faq-section">
-    <h2>Questions fréquentes</h2>
+    <div class="section-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Find quick answers to common questions about our services</p>
+    </div>
     <div class="faq-list">
-      <div class="faq-item" *ngFor="let faq of faqs">
+      <div class="faq-item" *ngFor="let faq of faqs; let i = index">
         <div class="faq-question" 
              [class.active]="selectedQuestion === faq.question"
              (click)="toggleQuestion(faq.question)">
           <h3>{{ faq.question }}</h3>
-          <span class="toggle-icon">{{ selectedQuestion === faq.question ? '−' : '+' }}</span>
+          <span class="toggle-icon">
+            <svg *ngIf="selectedQuestion !== faq.question" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <svg *ngIf="selectedQuestion === faq.question" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </span>
         </div>
         <div class="faq-answer" [class.show]="selectedQuestion === faq.question">
           <p>{{ faq.answer }}</p>
+          <div class="faq-actions" *ngIf="selectedQuestion === faq.question">
+            <button class="helpful-btn">Was this helpful?</button>
+            <a href="#" class="more-details">More details</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="contact-section">
-    <h2>Besoin de plus d'aide ?</h2>
+    <div class="section-header">
+      <h2>Need More Help?</h2>
+      <p>Our support team is here for you</p>
+    </div>
     <div class="contact-options">
       <div class="contact-card">
-        <div class="contact-icon">📧</div>
-        <h3>Email</h3>
-        <p>support@thera.com</p>
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <h3>Email Support</h3>
+        <p>support@thera-mind.com</p>
+        <a href="mailto:support@thera-mind.com" class="contact-btn">Send Email</a>
       </div>
       <div class="contact-card">
-        <div class="contact-icon">📞</div>
-        <h3>Téléphone</h3>
-        <p>+33 1 23 45 67 89</p>
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
+        <h3>Phone Support</h3>
+        <p>+1 (800) 123-4567</p>
+        <a href="tel:+18001234567" class="contact-btn">Call Now</a>
       </div>
       <div class="contact-card">
-        <div class="contact-icon">💬</div>
-        <h3>Chat en direct</h3>
-        <p>Disponible 7j/7, 9h-18h</p>
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </div>
+        <h3>Live Chat</h3>
+        <p>Available 24/7</p>
+        <button class="contact-btn primary">Start Chat</button>
       </div>
+    </div>
+  </section>
+
+  <section class="feedback-section">
+    <div class="feedback-container">
+      <h2>We Value Your Feedback</h2>
+      <p>Help us improve our support services</p>
+      <button class="feedback-btn">Share Your Feedback</button>
     </div>
   </section>
 </div>

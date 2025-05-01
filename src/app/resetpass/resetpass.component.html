@@ -1,0 +1,62 @@
+<div class="reset-password-container">
+    <h2>Réinitialisation du mot de passe</h2>
+    <form (submit)="onSubmit(); $event.preventDefault()">
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Nouveau mot de passe" required>
+      <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Confirmer le mot de passe" required>
+      <button type="submit">Réinitialiser le mot de passe</button>
+    </form>
+    <p class="retour">
+        <a routerLink="/forgetpass" class="forgetpass">forgetpass</a>
+      </p>
+  
+  </div>
+  <p class="message">{{ message }}</p>
+  <p class="message success" *ngIf="message">{{ message }}</p>
+<p class="message error" *ngIf="error">{{ error }}</p>
+<style>
+  .message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  color: #333;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  font-size: 14px;
+  font-weight: 500;
+  animation: fadeInOut 4s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+.success {
+  background-color: #e6ffed;
+  color: #2e7d32;
+  border: 1px solid #81c784;
+}
+
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef5350;
+}
+
+</style>

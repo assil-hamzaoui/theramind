@@ -111,10 +111,11 @@ export class RdvsComponent implements OnInit {
   }
 
   sendMessage() {
-    // Handle message sending logic
+    this.router.navigate(['/messages']);
   }
 
   goBack() {
     this.router.navigate(['/page9']);
   }
 }
+

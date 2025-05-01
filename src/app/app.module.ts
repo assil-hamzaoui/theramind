@@ -41,6 +41,18 @@ import { SafePipe } from './safe.pipe';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SadComponent } from './sad/sad.component';
+import { ResetpassComponent } from './resetpass/resetpass.component';
+import { AttendComponent } from './attend/attend.component';
+import { NotificationComponent } from './notification/notification.component';
+import { DashComponent } from './dashboard/dash/dash.component';
+import { ApointComponent } from './dashboard/apoint/apoint.component';
+import { TheraComponent } from './dashboard/thera/thera.component';
+import { ClientComponent } from './dashboard/client/client.component';
+import { ReportsComponent } from './dashboard/reports/reports.component';
+import { SettingsComponent } from './dashboard/settings/settings.component';
+import { DashboraddocComponent } from './docdash/dashboraddoc/dashboraddoc.component';
+import { MypatientComponent } from './docdash/mypatient/mypatient.component';
+
 
 export class ForgetPasswordModule { }
 
@@ -82,14 +94,29 @@ export class ForgetPasswordModule { }
     Page3Component,
     Page4Component,
     Page5Component,
-    Page6Component
+    Page6Component,
+    ResetpassComponent,
+    ResetpassComponent,
+    AttendComponent,
+    NotificationComponent,
+    DashComponent,
+    ApointComponent,
+    TheraComponent,
+    ClientComponent,
+    ReportsComponent,
+    SettingsComponent,
+    DashboraddocComponent,
+    MypatientComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+ 
 
 
 

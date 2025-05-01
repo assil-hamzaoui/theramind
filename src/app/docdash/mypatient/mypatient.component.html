@@ -1,0 +1,433 @@
+<div class="app-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo-container">
+        <div class="logo">T</div>
+        <h1 class="app-name">Thera</h1>
+        <button class="close-sidebar">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+  
+      <div class="therapist-profile">
+        <div class="therapist-avatar">
+          <img src="assets/images/user.png" alt="Therapist">
+        </div>
+        <div class="therapist-info">
+          <h2 class="therapist-name">Dr. Michael Rodriguez</h2>
+          <p class="therapist-specialty">Cognitive Behavioral Therapy</p>
+        </div>
+      </div>
+  
+      <nav class="nav-menu">
+        <ul>
+          <li class="active">
+            <a href="/Dashboraddoc">
+              <i class="fas fa-th-large"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/mypatient">
+              <i class="fas fa-users"></i>
+              <span>My Patients</span>
+            </a>
+          </li>
+          <li>
+            <a href="/schedule">
+              <i class="far fa-calendar-alt"></i>
+              <span>My Schedule</span>
+            </a>
+          </li>
+          <li>
+            <a href="/sessions">
+              <i class="fas fa-video"></i>
+              <span>Sessions</span>
+            </a>
+          </li>
+          <li>
+            <a href="/messages">
+              <i class="far fa-envelope"></i>
+              <span>Messages</span>
+              <span class="badge">5</span>
+            </a>
+          </li>
+          <li>
+            <a href="/resources">
+              <i class="fas fa-book"></i>
+              <span>Resources</span>
+            </a>
+          </li>
+          <li>
+            <a href="/profile">
+              <i class="fas fa-user-md"></i>
+              <span>My Profile</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+  
+      <div class="logout-container">
+        <a href="/logout" class="logout-btn">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="main-header">
+        <div class="page-title">
+          <h1>My Patients</h1>
+          <p class="date">{{ currentDate | date:'EEEE, MMMM d, y' }}</p>
+        </div>
+  
+        <div class="header-right">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search patients..." (input)="search($event)">
+          </div>
+          <div class="notifications">
+            <i class="far fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="patients-content">
+        <!-- Action Bar -->
+        <div class="action-bar">
+          <div class="filter-group">
+            <button [class.active]="statusFilter === 'all'" (click)="filterByStatus('all')">
+              All Patients
+            </button>
+            <button [class.active]="statusFilter === 'active'" (click)="filterByStatus('active')">
+              Active
+            </button>
+            <button [class.active]="statusFilter === 'inactive'" (click)="filterByStatus('inactive')">
+              Inactive
+            </button>
+          </div>
+  
+          <div class="action-buttons">
+            <button class="view-toggle" (click)="toggleViewMode()">
+              <i class="fas" [ngClass]="viewMode === 'list' ? 'fa-th-large' : 'fa-list'"></i>
+              {{ viewMode === 'list' ? 'Grid View' : 'List View' }}
+            </button>
+            <button class="add-patient" (click)="addNewPatient()">
+              <i class="fas fa-plus"></i> Add Patient
+            </button>
+          </div>
+        </div>
+  
+        <!-- Patients List View -->
+        <div class="patients-list" *ngIf="viewMode === 'list' && !selectedPatient">
+          <table>
+            <thead>
+              <tr>
+                <th (click)="sortPatients('name')">
+                  Patient Name
+                  <i class="fas" [ngClass]="{
+                    'fa-sort': sortBy !== 'name',
+                    'fa-sort-up': sortBy === 'name' && sortDirection === 'asc',
+                    'fa-sort-down': sortBy === 'name' && sortDirection === 'desc'
+                  }"></i>
+                </th>
+                <th>Diagnosis</th>
+                <th (click)="sortPatients('lastVisit')">
+                  Last Visit
+                  <i class="fas" [ngClass]="{
+                    'fa-sort': sortBy !== 'lastVisit',
+                    'fa-sort-up': sortBy === 'lastVisit' && sortDirection === 'asc',
+                    'fa-sort-down': sortBy === 'lastVisit' && sortDirection === 'desc'
+                  }"></i>
+                </th>
+                <th (click)="sortPatients('nextAppointment')">
+                  Next Appointment
+                  <i class="fas" [ngClass]="{
+                    'fa-sort': sortBy !== 'nextAppointment',
+                    'fa-sort-up': sortBy === 'nextAppointment' && sortDirection === 'asc',
+                    'fa-sort-down': sortBy === 'nextAppointment' && sortDirection === 'desc'
+                  }"></i>
+                </th>
+                <th (click)="sortPatients('progress')">
+                  Progress
+                  <i class="fas" [ngClass]="{
+                    'fa-sort': sortBy !== 'progress',
+                    'fa-sort-up': sortBy === 'progress' && sortDirection === 'asc',
+                    'fa-sort-down': sortBy === 'progress' && sortDirection === 'desc'
+                  }"></i>
+                </th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let patient of filteredPatients" (click)="selectPatient(patient)">
+                <td class="patient-name-cell">
+                  <div class="patient-avatar">
+                    <img [src]="patient.imageUrl" [alt]="patient.name">
+                  </div>
+                  <div class="patient-info">
+                    <h3>{{ patient.name }}</h3>
+                    <p>{{ patient.email }}</p>
+                  </div>
+                </td>
+                <td>{{ patient.diagnosis }}</td>
+                <td>{{ formatDate(patient.lastVisit) }}</td>
+                <td>{{ formatDate(patient.nextAppointment) }}</td>
+                <td>
+                  <div class="progress-bar">
+                    <div class="progress" [style.width.%]="patient.progress" [style.background-color]="getProgressColor(patient.progress)"></div>
+                  </div>
+                  <span class="progress-text">{{ patient.progress }}%</span>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="edit-btn" (click)="editPatient(patient, $event)">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="schedule-btn" (click)="scheduleAppointment(patient, $event)">
+                      <i class="far fa-calendar-plus"></i>
+                    </button>
+                    <button class="message-btn" (click)="sendMessage(patient, $event)">
+                      <i class="far fa-envelope"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+  
+          <div class="no-results" *ngIf="filteredPatients.length === 0">
+            <i class="fas fa-search"></i>
+            <h3>No patients found</h3>
+            <p>Try adjusting your search or filter criteria</p>
+          </div>
+        </div>
+  
+        <!-- Patients Grid View -->
+        <div class="patients-grid" *ngIf="viewMode === 'grid' && !selectedPatient">
+          <div class="patient-card" *ngFor="let patient of filteredPatients" (click)="selectPatient(patient)">
+            <div class="patient-card-header">
+              <div class="patient-avatar">
+                <img [src]="patient.imageUrl" [alt]="patient.name">
+              </div>
+              <div class="patient-info">
+                <h3>{{ patient.name }}</h3>
+                <p>{{ patient.diagnosis }}</p>
+              </div>
+            </div>
+  
+            <div class="patient-card-body">
+              <div class="info-row">
+                <span class="info-label">Age:</span>
+                <span class="info-value">{{ patient.age }}</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Gender:</span>
+                <span class="info-value">{{ patient.gender }}</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Last Visit:</span>
+                <span class="info-value">{{ formatDate(patient.lastVisit) }}</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Next Appointment:</span>
+                <span class="info-value">{{ formatDate(patient.nextAppointment) }}</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Progress:</span>
+                <div class="progress-bar">
+                  <div class="progress" [style.width.%]="patient.progress" [style.background-color]="getProgressColor(patient.progress)"></div>
+                </div>
+                <span class="progress-text">{{ patient.progress }}%</span>
+              </div>
+            </div>
+  
+            <div class="patient-card-footer">
+              <button class="edit-btn" (click)="editPatient(patient, $event)">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="schedule-btn" (click)="scheduleAppointment(patient, $event)">
+                <i class="far fa-calendar-plus"></i> Schedule
+              </button>
+              <button class="message-btn" (click)="sendMessage(patient, $event)">
+                <i class="far fa-envelope"></i> Message
+              </button>
+            </div>
+          </div>
+  
+          <div class="no-results" *ngIf="filteredPatients.length === 0">
+            <i class="fas fa-search"></i>
+            <h3>No patients found</h3>
+            <p>Try adjusting your search or filter criteria</p>
+          </div>
+        </div>
+  
+        <!-- Patient Details View -->
+        <div class="patient-details" *ngIf="selectedPatient">
+          <div class="details-header">
+            <button class="back-button" (click)="closePatientDetails()">
+              <i class="fas fa-arrow-left"></i> Back to Patients
+            </button>
+            <div class="action-buttons">
+              <button class="edit-btn" (click)="editPatient(selectedPatient, $event)">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="schedule-btn" (click)="scheduleAppointment(selectedPatient, $event)">
+                <i class="far fa-calendar-plus"></i> Schedule Appointment
+              </button>
+              <button class="message-btn" (click)="sendMessage(selectedPatient, $event)">
+                <i class="far fa-envelope"></i> Send Message
+              </button>
+            </div>
+          </div>
+  
+          <div class="details-content">
+            <div class="patient-profile">
+              <div class="profile-header">
+                <div class="patient-avatar large">
+                  <img [src]="selectedPatient.imageUrl" [alt]="selectedPatient.name">
+                </div>
+                <div class="patient-info">
+                  <h2>{{ selectedPatient.name }}</h2>
+                  <p class="diagnosis">{{ selectedPatient.diagnosis }}</p>
+                  <div class="contact-info">
+                    <p><i class="far fa-envelope"></i> {{ selectedPatient.email }}</p>
+                    <p><i class="fas fa-phone"></i> {{ selectedPatient.phone }}</p>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="profile-stats">
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="fas fa-calendar-check"></i>
+                  </div>
+                  <div class="stat-content">
+                    <h3>Last Visit</h3>
+                    <p class="stat-value">{{ formatDate(selectedPatient.lastVisit) }}</p>
+                    <p class="stat-subtext">{{ getDaysSinceLastVisit(selectedPatient.lastVisit) }} days ago</p>
+                  </div>
+                </div>
+  
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="far fa-calendar-alt"></i>
+                  </div>
+                  <div class="stat-content">
+                    <h3>Next Appointment</h3>
+                    <p class="stat-value">{{ formatDate(selectedPatient.nextAppointment) }}</p>
+                    <p class="stat-subtext">In {{ getDaysUntilNextAppointment(selectedPatient.nextAppointment) }} days</p>
+                  </div>
+                </div>
+  
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                  </div>
+                  <div class="stat-content">
+                    <h3>Sessions</h3>
+                    <p class="stat-value">{{ selectedPatient.sessionsCompleted }}/{{ selectedPatient.totalSessions }}</p>
+                    <p class="stat-subtext">{{ selectedPatient.therapyType }}</p>
+                  </div>
+                </div>
+  
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <div class="stat-content">
+                    <h3>Progress</h3>
+                    <div class="progress-bar large">
+                      <div class="progress" [style.width.%]="selectedPatient.progress" [style.background-color]="getProgressColor(selectedPatient.progress)"></div>
+                    </div>
+                    <p class="stat-value">{{ selectedPatient.progress }}%</p>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="profile-details">
+                <div class="details-section">
+                  <h3>Personal Information</h3>
+                  <div class="details-grid">
+                    <div class="detail-item">
+                      <span class="detail-label">Age</span>
+                      <span class="detail-value">{{ selectedPatient.age }}</span>
+                    </div>
+                    <div class="detail-item">
+                      <span class="detail-label">Gender</span>
+                      <span class="detail-value">{{ selectedPatient.gender }}</span>
+                    </div>
+                    <div class="detail-item">
+                      <span class="detail-label">Status</span>
+                      <span class="detail-value status" [ngClass]="selectedPatient.status.toLowerCase()">{{ selectedPatient.status }}</span>
+                    </div>
+                    <div class="detail-item">
+                      <span class="detail-label">Therapy Type</span>
+                      <span class="detail-value">{{ selectedPatient.therapyType }}</span>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="details-section">
+                  <h3>Clinical Notes</h3>
+                  <div class="notes-box">
+                    <p>{{ selectedPatient.notes }}</p>
+                  </div>
+                  <button class="add-note-btn">
+                    <i class="fas fa-plus"></i> Add New Note
+                  </button>
+                </div>
+  
+                <div class="details-section">
+                  <h3>Treatment Progress</h3>
+                  <div class="progress-chart">
+                    <!-- Placeholder for chart -->
+                    <div class="chart-placeholder">
+                      <svg viewBox="0 0 500 200">
+                        <path d="M0,150 C100,100 150,50 200,50 C250,50 300,100 400,150" stroke="#6366f1" stroke-width="3" fill="none"/>
+                        <path d="M0,150 C100,100 150,50 200,50 C250,50 300,100 400,150" stroke="#6366f1" stroke-width="20" fill="none" opacity="0.1"/>
+                      </svg>
+                      <div class="chart-labels">
+                        <span>Jan</span>
+                        <span>Feb</span>
+                        <span>Mar</span>
+                        <span>Apr</span>
+                        <span>May</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="details-section">
+                  <h3>Upcoming Sessions</h3>
+                  <div class="sessions-list">
+                    <div class="session-item">
+                      <div class="session-date">
+                        <span class="day">{{ selectedPatient.nextAppointment | date:'dd' }}</span>
+                        <span class="month">{{ selectedPatient.nextAppointment | date:'MMM' }}</span>
+                      </div>
+                      <div class="session-info">
+                        <h4>{{ selectedPatient.therapyType }} Session</h4>
+                        <p>{{ selectedPatient.nextAppointment | date:'EEEE, h:mm a' }}</p>
+                      </div>
+                      <div class="session-actions">
+                        <button class="reschedule-btn">
+                          <i class="fas fa-calendar-alt"></i> Reschedule
+                        </button>
+                        <button class="cancel-btn">
+                          <i class="fas fa-times"></i> Cancel
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

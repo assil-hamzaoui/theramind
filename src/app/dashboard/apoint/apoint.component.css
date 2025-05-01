@@ -1,0 +1,470 @@
+/* Main Container Styles - Reusing from dashboard */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Sidebar Styles - Reusing from dashboard */
+  .sidebar {
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    padding: 20px 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .logo {
+    width: 35px;
+    height: 35px;
+    background-color: #6366f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .app-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    flex-grow: 1;
+  }
+  
+  .close-sidebar {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+  }
+  
+  .nav-menu {
+    flex-grow: 1;
+    padding: 20px 0;
+  }
+  
+  .nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-menu li {
+    margin-bottom: 5px;
+  }
+  
+  .nav-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-menu a:hover {
+    background-color: #f5f5f5;
+    color: #6366f1;
+  }
+  
+  .nav-menu li.active a {
+    color: #6366f1;
+    background-color: #f0f0ff;
+    border-left: 3px solid #6366f1;
+  }
+  
+  .nav-menu i {
+    margin-right: 10px;
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+  }
+  
+  .logout-container {
+    padding: 20px;
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .logout-btn {
+    display: flex;
+    align-items: center;
+    color: #666;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: #f5f5f5;
+    color: #f44336;
+  }
+  
+  .logout-btn i {
+    margin-right: 10px;
+  }
+  
+  /* Main Content Styles - Reusing from dashboard */
+  .main-content {
+    flex-grow: 1;
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+  
+  /* Header Styles - Reusing from dashboard */
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .page-title h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .search-box {
+    position: relative;
+  }
+  
+  .search-box input {
+    padding: 10px 15px 10px 35px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 250px;
+  }
+  
+  .search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+  }
+  
+  .notifications {
+    position: relative;
+  }
+  
+  .notifications i {
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+  }
+  
+  .notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #6366f1;
+    color: white;
+    font-size: 10px;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .admin-name {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .avatar {
+    width: 35px;
+    height: 35px;
+    background-color: #6366f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Appointments Specific Styles */
+  .appointments-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .filter-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    color: #666;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-btn:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .filter-btn.active {
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .new-appointment-btn {
+    padding: 10px 20px;
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .new-appointment-btn:hover {
+    background-color: #4f46e5;
+  }
+  
+  /* Table Styles */
+  .appointments-table-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .appointments-table th,
+  .appointments-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .appointments-table th {
+    font-weight: 600;
+    color: #666;
+    background-color: #f9f9f9;
+    font-size: 14px;
+  }
+  
+  .appointments-table tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+  }
+  
+  .status-upcoming {
+    background-color: #e3f2fd;
+    color: #2196f3;
+  }
+  
+  .status-completed {
+    background-color: #e8f5e9;
+    color: #4caf50;
+  }
+  
+  .status-cancelled {
+    background-color: #ffebee;
+    color: #f44336;
+  }
+  
+  .actions-cell {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .action-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .edit-btn {
+    background-color: #e3f2fd;
+    color: #2196f3;
+  }
+  
+  .edit-btn:hover {
+    background-color: #bbdefb;
+  }
+  
+  .cancel-btn {
+    background-color: #ffebee;
+    color: #f44336;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #ffcdd2;
+  }
+  
+  .view-btn {
+    background-color: #f0f0f0;
+    color: #666;
+  }
+  
+  .view-btn:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Pagination Styles */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  
+  .pagination-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+  }
+  
+  .pagination-btn:hover:not(:disabled) {
+    background-color: #f5f5f5;
+  }
+  
+  .pagination-btn.active {
+    background-color: #6366f1;
+    color: white;
+    border-color: #6366f1;
+  }
+  
+  .pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 1200px) {
+    .appointments-table-container {
+      overflow-x: auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .app-container {
+      flex-direction: column;
+    }
+    
+    .sidebar {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .sidebar.open {
+      transform: translateX(0);
+    }
+    
+    .main-content {
+      margin-left: 0;
+    }
+    
+    .main-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    
+    .header-right {
+      width: 100%;
+      justify-content: space-between;
+    }
+    
+    .search-box input {
+      width: 100%;
+    }
+    
+    .action-bar {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .filter-buttons {
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 5px;
+    }
+    
+    .new-appointment-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }

@@ -1,19 +1,145 @@
 <div class="form-container">
-  <div class="logo-container">
-    Forgot Password
-  </div>
+  <div class="logo-container">🔒 <strong>Mot de passe oublié</strong></div>
 
-  <form class="form">
+  <form class="form" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="email"><strong> Email</strong></label>
-      <input type="text" id="email" name="email" placeholder="Enter your email" required="">
+      <label for="email"><strong>Email</strong></label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+        placeholder="Entrez votre email"
+        class="form-input"
+      />
     </div>
 
-    <button class="form-submit-btn" type="submit"> <strong>Send Email</strong></button>
+    <button class="form-submit-btn" type="submit">
+      <strong>Envoyer l'email</strong>
+    </button>
   </form>
 
   <p class="signup-link">
-    Don't have an account?
-    <a href="#" class="sign-up" style="color: rgb(116, 116, 233);"> Sign up now</a>
+    Vous n'avez pas de compte ?
+    <a routerLink="/signup" class="sign-up">Inscrivez-vous</a>
   </p>
+
+  <!-- Message de succès ou d’erreur -->
+  <div *ngIf="message" class="mssg success">{{ message }}</div>
+  <div *ngIf="error" class="mssg error">{{ error }}</div>
 </div>
+
+<!-- forgetpass.component.html -->
+
+<style>
+  .form-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo-container {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-input {
+  width: 100%;
+  padding: 12px 16px;                       /* Un peu plus d'espace à l'intérieur */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 17px;
+  box-sizing: border-box;                    /* Assure que padding et border sont pris en compte */
+  margin-bottom: 10px;                       /* Un peu d'espace sous l'input */
+}
+
+.form-input:focus {
+  border-color: #007aff;                    /* Bordure bleue au focus */
+  box-shadow: 0 0 5px rgba(0, 122, 255, 0.2); /* Légère ombre autour du champ au focus */
+}
+
+
+  .form-submit-btn {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .form-submit-btn:hover {
+    background-color: #45a049;
+  }
+
+  .signup-link {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .sign-up {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .sign-up:hover {
+    text-decoration: underline;
+  }
+
+  .mssg {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    font-size: 14px;
+    font-weight: 500;
+    animation: fadeInOut 4s ease-in-out forwards;
+    text-align: center;
+  }
+
+  .mssg.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+  }
+
+  .mssg.error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-10px);
+    }
+    10% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-10px);
+    }
+  }
+</style>

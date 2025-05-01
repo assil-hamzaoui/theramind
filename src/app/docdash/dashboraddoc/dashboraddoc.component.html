@@ -1,0 +1,339 @@
+<div class="app-container">
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+      <div class="logo-container">
+        <div class="logo">
+          <span>T</span>
+        </div>
+        <h2 class="app-name">Thera-Mind</h2>
+        <button class="close-sidebar">&times;</button>
+      </div>
+  
+      <div class="therapist-profile">
+        <div class="therapist-avatar">
+          <img src="assets/images/therapists/therapist-1.jpg" alt="Dr. Michael Rodriguez" onerror="this.src='assets/images/user.png'">
+        </div>
+        <div class="therapist-info">
+          <h3 class="therapist-name">Dr. Michael Rodriguez</h3>
+          <p class="therapist-specialty">Cognitive Behavioral Therapy</p>
+        </div>
+      </div>
+  
+      <nav class="nav-menu">
+        <ul>
+          <li class="active">
+            <a href="/Dashboraddoc">
+              <i class="fas fa-th-large"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/mypatient">
+              <i class="fas fa-users"></i>
+              <span>My Patients</span>
+            </a>
+          </li>
+          <li>
+            <a href="/schedule">
+              <i class="far fa-calendar-alt"></i>
+              <span>My Schedule</span>
+            </a>
+          </li>
+          <li>
+            <a href="/sessions">
+              <i class="fas fa-video"></i>
+              <span>Sessions</span>
+            </a>
+          </li>
+          <li>
+            <a href="/messages">
+              <i class="far fa-envelope"></i>
+              <span>Messages</span>
+              <span class="badge">5</span>
+            </a>
+          </li>
+          <li>
+            <a href="/resources">
+              <i class="fas fa-book"></i>
+              <span>Resources</span>
+            </a>
+          </li>
+          <li>
+            <a href="/profile">
+              <i class="fas fa-user-md"></i>
+              <span>My Profile</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+  
+      <div class="logout-container">
+        <a href="/logout" class="logout-btn">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </div>
+  
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="main-header">
+        <div class="page-title">
+          <h1>Therapist Dashboard</h1>
+          <p class="date">{{ currentDate | date:'EEEE, MMMM d, y' }}</p>
+        </div>
+        <div class="header-right">
+          <div class="search-box">
+            <input type="text" placeholder="Search patients...">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="notifications">
+            <i class="far fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </div>
+        </div>
+      </header>
+  
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+        <!-- Quick Stats -->
+        <div class="quick-stats">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="far fa-calendar-check"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Today's Sessions</h3>
+              <p class="stat-value">{{ todaySessions }}</p>
+            </div>
+          </div>
+  
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Total Patients</h3>
+              <p class="stat-value">{{ totalPatients }}</p>
+            </div>
+          </div>
+  
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Pending Reports</h3>
+              <p class="stat-value">{{ pendingReports }}</p>
+            </div>
+          </div>
+  
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="far fa-envelope"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Unread Messages</h3>
+              <p class="stat-value">{{ unreadMessages }}</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Upcoming Sessions -->
+        <div class="upcoming-sessions">
+          <div class="section-header">
+            <h2>Upcoming Sessions</h2>
+            <a href="/schedule" class="view-all">View All</a>
+          </div>
+  
+          <div class="sessions-list">
+            <div class="session-card" *ngFor="let session of upcomingSessions">
+              <div class="session-time">
+                <p class="time">{{ session.time }}</p>
+                <p class="duration">{{ session.duration }} mins</p>
+              </div>
+  
+              <div class="session-patient">
+                <div class="patient-avatar">
+                  <img [src]="session.patientImageUrl" alt="{{ session.patientName }}" onerror="this.src='assets/images/user.png'">
+                </div>
+                <div class="patient-info">
+                  <h3 class="patient-name">{{ session.patientName }}</h3>
+                  <p class="session-type">{{ session.type }}</p>
+                </div>
+              </div>
+  
+              <div class="session-actions">
+                <button class="action-btn start-btn" *ngIf="isSessionStartable(session)">
+                  <i class="fas fa-video"></i> Start
+                </button>
+                <button class="action-btn details-btn" *ngIf="!isSessionStartable(session)">
+                  <i class="fas fa-info-circle"></i> Details
+                </button>
+                <button class="action-btn reschedule-btn">
+                  <i class="far fa-clock"></i>
+                </button>
+              </div>
+            </div>
+  
+            <div class="no-sessions" *ngIf="upcomingSessions.length === 0">
+              <p>No upcoming sessions for today.</p>
+              <button class="schedule-btn">
+                <i class="far fa-calendar-plus"></i> Schedule New Session
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+          <!-- Patient Activity -->
+          <div class="grid-card patient-activity">
+            <div class="card-header">
+              <h2>Recent Patient Activity</h2>
+              <a href="/patients" class="view-all">View All</a>
+            </div>
+  
+            <div class="activity-list">
+              <div class="activity-item" *ngFor="let activity of patientActivities">
+                <div class="activity-icon" [ngClass]="activity.type">
+                  <i [class]="getActivityIcon(activity.type)"></i>
+                </div>
+                <div class="activity-content">
+                  <p class="activity-text">
+                    <span class="patient-name">{{ activity.patientName }}</span> {{ activity.description }}
+                  </p>
+                  <p class="activity-time">{{ activity.time }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Weekly Schedule -->
+          <div class="grid-card weekly-schedule">
+            <div class="card-header">
+              <h2>Weekly Schedule</h2>
+              <div class="week-navigation">
+                <button class="nav-btn">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <span>May 1 - May 7, 2025</span>
+                <button class="nav-btn">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+  
+            <div class="schedule-grid">
+              <div class="day-column" *ngFor="let day of weekDays">
+                <div class="day-header" [class.today]="day.isToday">
+                  <p class="day-name">{{ day.name }}</p>
+                  <p class="day-date">{{ day.date }}</p>
+                </div>
+  
+                <div class="day-sessions">
+                  <div class="schedule-session" *ngFor="let session of day.sessions"
+                       [style.top.px]="getSessionPosition(session.time)"
+                       [style.height.px]="getSessionHeight(session.duration)">
+                    <p class="session-time">{{ session.time }}</p>
+                    <p class="session-patient">{{ session.patientName }}</p>
+                  </div>
+  
+                  <div class="no-sessions-day" *ngIf="day.sessions.length === 0">
+                    <p>No sessions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Patient Progress -->
+          <div class="grid-card patient-progress">
+            <div class="card-header">
+              <h2>Patient Progress</h2>
+              <select class="patient-select">
+                <option value="all">All Patients</option>
+                <option *ngFor="let patient of patients" [value]="patient.id">{{ patient.name }}</option>
+              </select>
+            </div>
+  
+            <div class="progress-chart">
+              <div class="chart-placeholder">
+                <!-- This would be replaced with an actual chart library -->
+                <svg viewBox="0 0 300 100" preserveAspectRatio="none">
+                  <polyline points="0,70 50,65 100,50 150,40 200,30 250,25 300,20"
+                            fill="none" stroke="#6366f1" stroke-width="2"></polyline>
+                  <polyline points="0,70 50,65 100,50 150,40 200,30 250,25 300,20"
+                            fill="rgba(99, 102, 241, 0.1)" stroke="none"></polyline>
+                </svg>
+                <div class="chart-labels">
+                  <span>Jan</span>
+                  <span>Feb</span>
+                  <span>Mar</span>
+                  <span>Apr</span>
+                  <span>May</span>
+                  <span>Jun</span>
+                  <span>Jul</span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="progress-metrics">
+              <div class="metric">
+                <h4>Attendance Rate</h4>
+                <p class="metric-value">92%</p>
+              </div>
+  
+              <div class="metric">
+                <h4>Homework Completion</h4>
+                <p class="metric-value">78%</p>
+              </div>
+  
+              <div class="metric">
+                <h4>Symptom Reduction</h4>
+                <p class="metric-value">65%</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Recent Notes -->
+          <div class="grid-card recent-notes">
+            <div class="card-header">
+              <h2>Recent Notes</h2>
+              <a href="/notes" class="view-all">View All</a>
+            </div>
+  
+            <div class="notes-list">
+              <div class="note-item" *ngFor="let note of recentNotes">
+                <div class="note-header">
+                  <div class="note-patient">
+                    <img [src]="note.patientImageUrl" alt="{{ note.patientName }}" onerror="this.src='assets/images/user.png'">
+                    <span>{{ note.patientName }}</span>
+                  </div>
+                  <p class="note-date">{{ note.date }}</p>
+                </div>
+  
+                <div class="note-content">
+                  <p>{{ note.content }}</p>
+                </div>
+  
+                <div class="note-actions">
+                  <button class="note-btn edit-btn">
+                    <i class="fas fa-edit"></i> Edit
+                  </button>
+                  <button class="note-btn view-btn">
+                    <i class="fas fa-eye"></i> View Full
+                  </button>
+                </div>
+              </div>
+            </div>
+  
+            <button class="add-note-btn">
+              <i class="fas fa-plus"></i> Add New Note
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>

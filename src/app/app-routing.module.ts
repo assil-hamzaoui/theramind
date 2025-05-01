@@ -31,6 +31,17 @@ import { HappyComponent } from './happy/happy.component';
 import { SadComponent } from './sad/sad.component';
 import { AideComponent } from './aide/aide.component';
 import { DoctorComponent } from './doctors/doctors.component';
+import { ResetpassComponent } from './resetpass/resetpass.component';
+import { AttendComponent } from './attend/attend.component';
+import { NotificationComponent } from './notification/notification.component';
+import { DashComponent } from './dashboard/dash/dash.component';
+import { ApointComponent } from './dashboard/apoint/apoint.component';
+import { TheraComponent } from './dashboard/thera/thera.component';
+import { ClientComponent } from './dashboard/client/client.component';
+import { ReportsComponent } from './dashboard/reports/reports.component';
+import { SettingsComponent } from './dashboard/settings/settings.component';
+import { MypatientComponent } from './docdash/mypatient/mypatient.component';
+import { DashboraddocComponent } from './docdash/dashboraddoc/dashboraddoc.component';
 
 
 const routes: Routes = [
@@ -39,33 +50,46 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignupComponent },
   { path: 'forgetpass', component: ForgetPasswordComponent },
-  { path: 'apropos', component: AproposComponent},
-  { path: 'video', component: VideoComponent},
-  { path: 'profil', component: ProfilComponent},
-  {path: 'explore',component:ExploreComponent},
-  {path:'consultations',component:ConsultationsComponent},
-  {path:'messages',component:MessagesComponent},
-  {path:'pricing-card',component:PricingCardComponent},
-  {path:'footer', component:FooterComponent},
-  {path:'search',component:SearchComponent},
-  {path:'signdoc',component:SigndocComponent},
-  {path:'page1',component:Page1Component},
-  {path:'side',component:SideComponent},
-  {path:'page2',component:Page2Component},
-  {path:'page3',component:Page3Component},
-  {path:'page4',component:Page4Component},
-  {path:'page5',component:Page5Component},
-  {path:'page6',component:Page6Component},
-  {path:'page7',component:Page7Component},
-  {path:'page8',component:Page8Component},
-  {path:'page9',component:Page9Component},
+  { path: 'apropos', component: AproposComponent },
+  { path: 'video', component: VideoComponent },
+  { path: 'profil', component: ProfilComponent },
+  { path: 'explore', component: ExploreComponent },
+  { path: 'consultations', component: ConsultationsComponent },
+  { path: 'messages', component: MessagesComponent },
+  { path: 'pricing-card', component: PricingCardComponent },
+  { path: 'footer', component: FooterComponent },
+  { path: 'search', component: SearchComponent },
+  { path: 'signdoc', component: SigndocComponent },
+  { path: 'page1', component: Page1Component },
+  { path: 'side', component: SideComponent },
+  { path: 'page2', component: Page2Component },
+  { path: 'page3', component: Page3Component },
+  { path: 'page4', component: Page4Component },
+  { path: 'page5', component: Page5Component },
+  { path: 'page6', component: Page6Component },
+  { path: 'page7', component: Page7Component },
+  { path: 'page8', component: Page8Component },
+  { path: 'page9', component: Page9Component },
   { path: 'rdvs', component: RdvsComponent },
   { path: 'rdvl', component: RdvlComponent },
-  {path:'happy',component : HappyComponent},
-  {path:'sad',component:SadComponent},
-  {path:'aide', component: AideComponent},
-  // Autres routes...
+  { path: 'happy', component: HappyComponent },
+  { path: 'sad', component: SadComponent },
+  { path: 'aide', component: AideComponent },
+  { path: 'resetpass/:token', component: ResetpassComponent },
+  { path: 'dash', component: DashComponent },
+   {path:'apoint', component:ApointComponent},
+   {path:'client',component:ClientComponent},
+   {path:'reports',component:ReportsComponent},
+   {path:'thera',component:TheraComponent},
+   {path:'settings',component:SettingsComponent},
+   {path:'attend',component:AttendComponent},
+   {path:'notif',component:NotificationComponent},
+   {path:'mypatient', component:MypatientComponent},
+   {path:'Dashboraddoc',component:DashboraddocComponent}
+
+
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

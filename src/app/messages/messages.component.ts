@@ -58,7 +58,7 @@ export class MessagesComponent implements OnInit, AfterViewChecked {
         timestamp: new Date(),
         status: 'seen',
         type: 'meet',
-        meetLink: meetLink
+        meetLink: 'attend'
       }
     ];
   }

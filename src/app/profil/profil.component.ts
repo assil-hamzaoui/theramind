@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent {
+  showSettings = false;
+
 
 }
